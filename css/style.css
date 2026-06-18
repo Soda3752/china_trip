@@ -45,7 +45,11 @@ body {
   padding: env(safe-area-inset-top) 18px 12px;
   padding-top: max(12px, env(safe-area-inset-top));
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+  will-change: transform;
 }
+/* 上滑捲過門檻：紅色標題平滑滑出收合（藍色 Day 分頁仍維持至頂） */
+body.head-collapsed .topbar { transform: translateY(-100%); }
 .topbar-title {
   margin: 6px 0 2px;
   font-size: 1.18rem;
@@ -80,7 +84,10 @@ body {
   border-bottom: 1px solid var(--line);
   overflow-x: auto;
   scrollbar-width: none;
+  transition: transform 0.25s ease;
 }
+/* 標題收合時，Day 分頁同步上移補到最頂端，與標題滑出同步 */
+body.head-collapsed .tabbar { transform: translateY(calc(-1 * var(--topbar-h))); }
 .tabbar::-webkit-scrollbar { display: none; }
 .tab {
   position: relative;

@@ -26,6 +26,7 @@ async function init() {
   selectTab(APP.activeDay, { scroll: false });
   bindNowButton();
   attachMapHandler();
+  bindHeaderCollapse();
   scrollToCurrent();
   // 每分鐘更新一次高亮（覆寫模式下不自動跳動）
   APP.refreshTimer = setInterval(() => {
@@ -295,6 +296,30 @@ function bindNowButton() {
       scrollToCurrent();
     }
   });
+}
+
+// 上滑捲過門檻 → 收合頂部標題（藍色 Day 分頁維持至頂）；捲回頂端再展開。
+// 用 transform 收合（不觸發 reflow，門檻不會抖動）；加 hysteresis 防臨界閃動。
+function bindHeaderCollapse() {
+  const COLLAPSE_AT = 72; // 捲過此距離（px）收合
+  const EXPAND_AT = 16;   // 捲回此距離內展開
+  let collapsed = false;
+  let ticking = false;
+  const update = () => {
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    if (!collapsed && y > COLLAPSE_AT) {
+      collapsed = true;
+      document.body.classList.add('head-collapsed');
+    } else if (collapsed && y < EXPAND_AT) {
+      collapsed = false;
+      document.body.classList.remove('head-collapsed');
+    }
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
 }
 
 // 手機點擊「導航」/交通串接 → 先試喚起高德 App，開不起來才退回網頁
