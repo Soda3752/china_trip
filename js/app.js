@@ -21,6 +21,7 @@ async function init() {
   recompute();
   renderHeader();
   renderUpdatedAt();
+  syncTopbarHeight();
   renderTabs();
   APP.activeDay = APP.state.dayIndex; // 預設開「今天」
   selectTab(APP.activeDay, { scroll: false });
@@ -74,9 +75,19 @@ async function renderUpdatedAt() {
     if (!builtAt) return;
     el.textContent = `最後更新：${builtAt}`;
     el.hidden = false;
+    syncTopbarHeight(); // 此行非同步出現會墊高標題 → 重新量測
   } catch (_) {
     /* 本地預覽無此檔 → 不顯示 */
   }
+}
+
+// 量測標題列實際高度寫回 --topbar-h，讓 tabbar 的 sticky top 與收合位移永遠對齊
+// （標題字數／「最後更新」行／螢幕寬度都會改變高度，不能寫死）
+function syncTopbarHeight() {
+  const tb = document.querySelector('.topbar');
+  if (!tb) return;
+  const h = Math.round(tb.getBoundingClientRect().height);
+  if (h > 0) document.documentElement.style.setProperty('--topbar-h', h + 'px');
 }
 
 // ---- Tabs ----
@@ -319,6 +330,8 @@ function bindHeaderCollapse() {
   window.addEventListener('scroll', () => {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
+  // 轉向／改變視窗寬度會改變標題列高度 → 重新量測對齊
+  window.addEventListener('resize', () => requestAnimationFrame(syncTopbarHeight), { passive: true });
   update();
 }
 
@@ -332,24 +345,54 @@ function attachMapHandler() {
     const web = a.getAttribute('href');
     const native = amapNativeUrl(
       { coord, keyword: a.getAttribute('data-name') || '' },
-      a.getAttribute('data-mode') || '',
-      web
+      a.getAttribute('data-mode') || ''
     );
     if (!native) return; // 桌機 → 正常開網頁
     e.preventDefault();
     if (amapPlatform() === 'android') {
-      window.location.href = native; // intent 自帶網頁 fallback
+      // intent 自帶 browser_fallback_url：有裝開 App，沒裝自動跳商店引導安裝
+      window.location.href = native;
       return;
     }
-    // iOS：嘗試喚起 App，1.5 秒內若頁面仍可見（App 沒開）→ 退回網頁
+    // iOS：嘗試喚起 App，1.5 秒內若頁面仍可見（App 沒開）→ 彈窗引導安裝／改用網頁版
     const timer = setTimeout(() => {
-      if (!document.hidden) window.location.href = web;
+      if (!document.hidden) showInstallDialog(web);
     }, 1500);
     const cancel = () => clearTimeout(timer);
     document.addEventListener('visibilitychange', cancel, { once: true });
     window.addEventListener('pagehide', cancel, { once: true });
     window.location.href = native;
   });
+}
+
+// 未偵測到高德 App（iOS）→ 底部彈窗：前往安裝／改用網頁版／取消
+function showInstallDialog(webUrl) {
+  if (document.querySelector('.install-sheet')) return; // 避免重複
+  const overlay = document.createElement('div');
+  overlay.className = 'install-overlay';
+  overlay.innerHTML = `
+    <div class="install-sheet" role="dialog" aria-modal="true" aria-labelledby="install-title">
+      <p class="install-title" id="install-title">尚未偵測到高德地圖 App</p>
+      <p class="install-desc">安裝後導航更精準，<br>或改用網頁版地圖繼續。</p>
+      <button type="button" class="install-btn install-btn--primary" data-act="install">前往安裝高德地圖</button>
+      <button type="button" class="install-btn" data-act="web">改用網頁版地圖</button>
+      <button type="button" class="install-btn install-btn--ghost" data-act="cancel">取消</button>
+    </div>`;
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', (ev) => {
+    const act = ev.target.closest('[data-act]')?.getAttribute('data-act');
+    if (ev.target === overlay || act === 'cancel') return close();
+    if (act === 'install') {
+      const store = amapStoreUrl('ios');
+      if (store) window.location.href = store;
+      return close();
+    }
+    if (act === 'web') {
+      if (webUrl) window.location.href = webUrl;
+      return close();
+    }
+  });
+  document.body.appendChild(overlay);
 }
 
 function scrollToCurrent() {
