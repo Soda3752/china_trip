@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
   fillIntroClock(); // 依當前上海時間填入翻牌時鐘，讓入場數字與「現在」一致
+  if (await checkFreshVersion()) return; // 偵測到新版 → 已觸發強制重載，停止後續初始化
   try {
     const res = await fetch('data/itinerary.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -102,16 +103,48 @@ function renderHeader() {
     `${m.dateRange} · ${m.people}人 · ${m.hotel}`;
 }
 
+// sessionStorage 安全存取（隱私模式下存取可能 throw）
+function ssGet(k) { try { return sessionStorage.getItem(k); } catch (_) { return null; } }
+function ssSet(k, v) { try { sessionStorage.setItem(k, v); } catch (_) {} }
+
+// 版本檢查：build-info.json 一律 no-store 抓最新版本號，與本頁載入時的 window.__BUILD__ 比對；
+// 不同代表使用者拿到的是被快取的舊頁 → 帶 cache-bust 參數強制重載一次（繞過 GitHub Pages 的 max-age=600）。
+// 重載發生在入場 loader 仍覆蓋畫面時，使用者不會看到舊內容閃現。
+async function checkFreshVersion() {
+  const built = window.__BUILD__;
+  if (!built || built === '__BUILD_VERSION__') return false; // 本機預覽／未經 CI 注入 → 略過
+  try {
+    const res = await fetch('build-info.json', { cache: 'no-store' });
+    if (!res.ok) return false;
+    const info = await res.json();
+    APP.buildInfo = info; // 供 renderUpdatedAt 重用，免重複請求
+    if (info.version && info.version !== built) {
+      if (ssGet('cb-version') === info.version) return false; // 本 session 已為此版本重載過 → 防迴圈
+      ssSet('cb-version', info.version);
+      const url = new URL(location.href);
+      url.searchParams.set('_', info.version); // 唯一 query → CDN/瀏覽器快取 miss → 抓回最新 HTML
+      location.replace(url.toString());
+      return true;
+    }
+  } catch (_) {
+    /* 無此檔（本機預覽）或網路問題 → 不處理 */
+  }
+  return false;
+}
+
 // 最後更新時間（由 CI 部署時產生的 build-info.json，台北 UTC+8）
 async function renderUpdatedAt() {
   const el = document.getElementById('app-updated');
   if (!el) return;
   try {
-    const res = await fetch('build-info.json', { cache: 'no-store' });
-    if (!res.ok) return;
-    const { builtAt } = await res.json();
-    if (!builtAt) return;
-    el.textContent = `最後更新：${builtAt}`;
+    let info = APP.buildInfo;
+    if (!info) {
+      const res = await fetch('build-info.json', { cache: 'no-store' });
+      if (!res.ok) return;
+      info = await res.json();
+    }
+    if (!info.builtAt) return;
+    el.textContent = `最後更新：${info.builtAt}`;
     el.hidden = false;
     syncTopbarHeight(); // 此行非同步出現會墊高標題 → 重新量測
   } catch (_) {
