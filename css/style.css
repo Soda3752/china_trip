@@ -284,6 +284,21 @@ body.head-collapsed .tabbar { transform: translateY(calc(-1 * var(--topbar-h)));
 .card-title { margin: 0; font-family: var(--serif); font-size: 1.08rem; font-weight: 700; color: var(--jade); }
 .card-intro { margin: 7px 0 0; font-size: 0.85rem; color: var(--ink-soft); }
 
+.spot-stay {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 9px 0 0;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--jade);
+  background: var(--paper-2);
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius);
+}
+.spot-stay b { font-family: var(--deco); letter-spacing: 0.03em; color: var(--jade); }
+
 .btn-nav {
   flex: 0 0 auto;
   background: transparent;

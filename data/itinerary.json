@@ -72,6 +72,7 @@
         {
           "type": "spot",
           "time": "17:30",
+          "stay": "約 1.5 小時",
           "name": "南京路步行街",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/East_Nanjing_Road_2020_%2850361842166%29.jpg/960px-East_Nanjing_Road_2020_%2850361842166%29.jpg",
           "intro": "素有「中華第一商業街」美名的南京路步行街，全長約一公里，從人民廣場一路延伸至外灘，沿途林立百年老店、現代百貨與五光十色的霓虹招牌，是感受上海摩登氣息的最佳起點。街上可搭乘復古的「噹噹車」觀光小火車省力代步，特別適合帶長輩同行；建議傍晚時分前來，避開七月正午的烈日，既能逛街吹冷氣，又能等天色漸暗後欣賞點亮的燈海與外灘夜景。沿途可順道嚐沈大成、第一食品商店的傳統點心，記得隨身備水、留意人潮中的隨身物品。",
@@ -80,6 +81,7 @@
         {
           "type": "spot",
           "time": "19:00",
+          "stay": "約 1 小時 15 分",
           "name": "晚餐 · 南翔饅頭店／本幫菜",
           "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/%E5%9F%8E%E9%9A%8D%E5%BB%9F-%E4%B9%9D%E6%9B%B2%E6%A9%8B-%E5%8D%97%E7%BF%94%E9%A5%85%E9%A0%AD%E5%BA%97.JPG",
           "intro": "創始於1900年的南翔饅頭店是上海小籠包的百年老字號，坐落於城隍廟九曲橋畔，招牌鮮肉小籠皮薄汁多、一口爆漿，是品嘗道地本幫風味的首選。建議避開正午與傍晚的排隊人潮，可上樓選擇有冷氣的雅座用餐，七月炎熱時對長輩較舒適；點餐除了經典鮮肉小籠，也別錯過蟹粉小籠與蟹黃灌湯包，搭配一碗蛋皮湯解膩。趁熱先咬小口吸湯汁再沾鎮江醋與薑絲，風味最佳；用餐後可順道散步九曲橋與豫園夜景，是親子拍照的好去處。",
@@ -94,6 +96,7 @@
         {
           "type": "spot",
           "time": "20:30",
+          "stay": "約 1 小時 15 分",
           "name": "外灘夜景散步",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/A_picture_from_China_every_day_101.jpg/960px-A_picture_from_China_every_day_101.jpg",
           "intro": "外灘是上海最經典的地標，黃浦江西岸一字排開52棟風格各異的「萬國建築博覽群」，從哥德式到巴洛克應有盡有；江對岸則是東方明珠與陸家嘴摩天樓群，新舊輝映。最佳造訪時段是日落後約19點，待大樓亮燈後沿江濱步道散步、隔江拍陸家嘴夜景最美。7月白天酷熱，建議傍晚再出門，並隨身帶水與摺扇；夜間沿江風大較涼爽，適合長輩慢行，但週末與假日人潮極多，可請媽媽走內側、留意扒手並照看好同行家人。",
@@ -132,6 +135,7 @@
         {
           "type": "spot",
           "time": "10:00",
+          "stay": "約 2 小時",
           "name": "宮宴漢服妝造（10:00 進場）",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Gu_Hongzhong%27s_Night_Revels%2C_Detail_1.jpg/960px-Gu_Hongzhong%27s_Night_Revels%2C_Detail_1.jpg",
           "intro": "位於靜安區北京西路 1485 號的漢服妝造體驗店，提供唐裝、明制、宋制等多款形制服飾，搭配專業梳化妝髮，讓你穿越成古裝美人在上海街頭與園林取景。今日 10:00 準時進場梳化、12:00 入席午宴，妝髮時間充裕；建議事先線上預約並確認可否將漢服帶出外拍。7 月天氣炎熱，外拍可挑較涼爽時段，多備一套輕薄內搭與小電扇，並提醒媽媽選色彩雅致、剪裁寬鬆的明制款式較顯氣質又透氣舒適。完成後午宴登場，下午再就近到豫園穿著漢服拍出復古韻味的家庭合照。",
@@ -140,6 +144,7 @@
         {
           "type": "spot",
           "time": "12:00",
+          "stay": "約 1.5 小時",
           "name": "宮宴午宴",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Manchu_Han_Imperial_Feast_Tao_Heung_Museum_of_Food_Culture.jpg/960px-Manchu_Han_Imperial_Feast_Tao_Heung_Museum_of_Food_Culture.jpg",
           "intro": "宮宴午宴以清代宮廷盛宴為靈感，重現滿漢全席的華麗排場，從擺盤、餐具到服務人員的服飾都講究古典韻味，讓人彷彿走進紫禁城的御膳氛圍。菜色融合各地名饌與精緻冷熱碟，份量適合四人共享，典雅又有儀式感的用餐體驗媽媽一定會喜歡。建議提前訂位並安排包廂座位，七月天氣炎熱，在室內享用正好避暑，穿著漢服入席別忘了與宮廷布景合影留念。",
@@ -154,6 +159,7 @@
         {
           "type": "spot",
           "time": "14:30",
+          "stay": "約 2.5 小時",
           "name": "豫園（漢服遊園）",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Shanghai_-_Yu_Garden_-_0035.jpg/960px-Shanghai_-_Yu_Garden_-_0035.jpg",
           "intro": "午宴後可穿著漢服前來豫園遊園拍照，明代古典園林與漢服最是相襯，移步換景間皆是大片。豫園是上海市中心保存最完整的明代古典園林，距今逾四百年，以精巧的假山、九曲橋、玉玲瓏太湖石與雕梁畫棟的亭台樓閣聞名。園內石板路與小橋較多，帶長輩可放慢腳步，記得備好遮陽帽、扇子與飲用水，並在九曲橋與荷花池畔留影最為經典；園外緊鄰的豫園商城與城隍廟可順遊，傍晚不出園一路待到夜景點燈最為值得。",
@@ -162,6 +168,7 @@
         {
           "type": "spot",
           "time": "17:00",
+          "stay": "約 2 小時",
           "name": "城隍廟商圈",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%E5%9F%8E%E9%9A%8D%E5%BA%99%C2%B7%E4%B8%8A%E6%B5%B7%E5%8D%97%E5%B8%82.jpg/960px-%E5%9F%8E%E9%9A%8D%E5%BA%99%C2%B7%E4%B8%8A%E6%B5%B7%E5%8D%97%E5%B8%82.jpg",
           "intro": "上海城隍廟商圈是緊鄰豫園的明清風格老城廂，飛簷翹角的牌樓與九曲橋構成最經典的上海意象，也是小吃與伴手禮的集散地，南翔饅頭店的鮮肉小籠、蟹粉湯包與梨膏糖、五香豆都不容錯過。建議避開正午高溫，安排傍晚前往，既能避暑又能拍到華燈初上、燈籠倒映水面的絕美夜景。七月人潮與日曬都很驚人，記得替媽媽備好遮陽帽與飲水，熱門店家常需排隊，可分頭取餐或先在豫園商城內的冷氣餐廳坐下歇腳。",
@@ -170,6 +177,7 @@
         {
           "type": "spot",
           "time": "19:00",
+          "stay": "約 1.5 小時",
           "name": "晚餐 · 城隍廟本幫菜",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Food_%E8%80%81%E5%90%89%E5%A3%AB%2C_%E4%B8%8A%E6%B5%B7%E8%8F%9C%2C_%E6%BB%AC%E8%8F%9C%2C_%E6%9C%AC%E5%B9%AB%E8%8F%9C%2C_%E4%B8%8A%E6%B5%B7%2C_%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%2C_%E4%B8%AD%E5%9C%8B%2C_Shanghai%2C_People%27s_Republic_of_China%2C_PRC%2C_China_%2830166079710%29.jpg/960px-Food_%E8%80%81%E5%90%89%E5%A3%AB%2C_%E4%B8%8A%E6%B5%B7%E8%8F%9C%2C_%E6%BB%AC%E8%8F%9C%2C_%E6%9C%AC%E5%B9%AB%E8%8F%9C%2C_%E4%B8%8A%E6%B5%B7%2C_%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%2C_%E4%B8%AD%E5%9C%8B%2C_Shanghai%2C_People%27s_Republic_of_China%2C_PRC%2C_China_%2830166079710%29.jpg",
           "intro": "本幫菜是道地的上海家常味，講究濃油赤醬、鹹中帶甜，招牌的紅燒肉、油爆河蝦、草頭圈子與蟹粉豆腐軟糯入味，最對長輩胃口。城隍廟周邊老字號林立，逛完豫園、九曲橋順道用晚餐最方便，建議避開七點尖峰、約五點半提早入座，現場也能用手機掃碼排隊取號。七月天熱，店內多有冷氣可消暑，點菜時可請店家少糖少油、再配一碗清爽的醃篤鮮湯，全家四口分食最划算；用餐後再到城隍廟夜景區散步拍照，氣氛十足。",
@@ -178,6 +186,7 @@
         {
           "type": "spot",
           "time": "20:30",
+          "stay": "約 1 小時",
           "name": "豫園夜景燈光",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Shanghai_-_Yu_Garden_-_0035.jpg/960px-Shanghai_-_Yu_Garden_-_0035.jpg",
           "intro": "豫園是上海明代古典園林的代表，與相鄰的城隍廟商圈連成一片，入夜後飛簷樓閣與九曲橋點上暖黃燈光，紅燈籠倒映湖心亭水面，呈現與白天截然不同的江南古韻夜色。建議白天先入園逛庭園，傍晚不出園、一路待到天黑賞燈，可省去二次入場排隊，也避開七月正午的暴曬。湖心亭、九曲橋與商圈牌樓是最佳拍照點；體力有限的媽媽可在湖心亭茶樓歇腳喝茶，夜晚人潮較多，記得看顧好家人並提防扒手。",
@@ -217,6 +226,7 @@
         {
           "type": "spot",
           "time": "08:30",
+          "stay": "約 4 小時",
           "name": "上海迪士尼樂園",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/%E4%B8%8A%E6%B5%B7%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD%E5%A5%87%E5%B9%BB%E7%AB%A5%E8%AF%9D%E5%9F%8E%E5%A0%A1%E6%AD%A3%E9%9D%A2.jpg/960px-%E4%B8%8A%E6%B5%B7%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD%E5%A5%87%E5%B9%BB%E7%AB%A5%E8%AF%9D%E5%9F%8E%E5%A0%A1%E6%AD%A3%E9%9D%A2.jpg",
           "intro": "上海迪士尼樂園是中國大陸首座迪士尼主題樂園，園區中央矗立著全球最高的「奇幻童話城堡」，七大主題園區中「創極速光輪」「加勒比海盜：沉落寶藏之戰」更是世界級必玩設施。建議提前在官方 App 購票並預約「迪士尼尊享卡」或單項排隊卡，開園即先衝熱門項目，避開正午大排長龍。七月酷暑要備帽子、水與防曬，帶長輩的話可多利用室內冷氣場館（如船載遊「飛越地平線」）與遮蔭區休息，傍晚務必留在城堡前觀賞夜間燈光煙火秀，是全家最佳合影時刻。",
@@ -225,6 +235,7 @@
         {
           "type": "spot",
           "time": "12:30",
+          "stay": "約 1.5 小時",
           "name": "午餐（室內餐廳）",
           "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）選室內餐廳吹冷氣休息，午間 12–14 點最熱。",
@@ -233,6 +244,7 @@
         {
           "type": "spot",
           "time": "14:00",
+          "stay": "約 3 小時",
           "name": "下午場熱門設施",
           "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）七個小矮人礦山車・瘋狂動物城・雷鳴山漂流。",
@@ -241,6 +253,7 @@
         {
           "type": "spot",
           "time": "17:00",
+          "stay": "約 3.5 小時",
           "name": "自由活動",
           "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）媽媽可在商店休息，年輕人繼續衝熱門設施。",
@@ -249,6 +262,7 @@
         {
           "type": "spot",
           "time": "20:30",
+          "stay": "約 1 小時",
           "name": "煙火秀",
           "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）不要錯過！",
@@ -287,6 +301,7 @@
         {
           "type": "spot",
           "time": "08:30",
+          "stay": "約 2 小時",
           "name": "朱家角古鎮",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/%E6%9C%B1%E5%AE%B6%E8%A7%92%E4%B8%AD%E5%BF%83%E5%8C%BA%C2%B7%E6%9C%B1%E5%AE%B6%E8%A7%92%E9%95%87%C2%B7%EF%BC%88%E4%BF%AF%E6%8B%8D%EF%BC%89.jpg/960px-%E6%9C%B1%E5%AE%B6%E8%A7%92%E4%B8%AD%E5%BF%83%E5%8C%BA%C2%B7%E6%9C%B1%E5%AE%B6%E8%A7%92%E9%95%87%C2%B7%EF%BC%88%E4%BF%AF%E6%8B%8D%EF%BC%89.jpg",
           "intro": "朱家角是上海近郊保存最完整的江南水鄉古鎮，明清老街、白牆黛瓦與縱橫河道交織，最著名的放生橋是滬上最大的五孔石拱橋，登橋俯瞰小橋流水人家的景致最為經典。建議一早趁人潮未湧入時前往，光線柔和、巷弄清幽，也避開七月正午的暴曬；河岸老店可嚐紮肉、阿婆粽與扎蹄，再搭一趟搖櫓船從水上看古鎮，全家拍照、長輩散步都輕鬆。記得備好遮陽帽與飲水，石板路濕滑請放慢腳步，照顧好同行的媽媽。",
@@ -295,6 +310,7 @@
         {
           "type": "spot",
           "time": "10:30",
+          "stay": "約 1.5 小時",
           "name": "北大街・放生橋・搖櫓船",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/%E6%94%BE%E7%94%9F%E6%A1%A5.jpg/960px-%E6%94%BE%E7%94%9F%E6%A1%A5.jpg",
           "intro": "放生橋是朱家角古鎮的地標，為上海地區現存最大、最古老的五孔石拱橋，明代興建，橫跨漕港河、橋身倒映水面，是必拍的江南水鄉經典畫面。橋畔的北大街被稱為「上海第一明清街」，老字號小吃、扎肉與阿婆粽林立，逛街順道覓食最為愜意；橋下可搭乘搖櫓船穿行水巷，由船伕手搖慢遊，是長輩與孩子都喜歡的悠閒體驗。七月炎熱，建議一早或傍晚前往避開正午高溫與人潮，登橋與搭船時留意石階濕滑、扶好媽媽，並隨身備水防中暑。",
@@ -303,6 +319,7 @@
         {
           "type": "spot",
           "time": "12:00",
+          "stay": "約 1.5 小時",
           "name": "朱家角古鎮午餐",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/%E6%9C%B1%E5%AE%B6%E8%A7%92%E4%B8%AD%E5%BF%83%E5%8C%BA%C2%B7%E6%9C%B1%E5%AE%B6%E8%A7%92%E9%95%87%C2%B7%EF%BC%88%E4%BF%AF%E6%8B%8D%EF%BC%89.jpg/960px-%E6%9C%B1%E5%AE%B6%E8%A7%92%E4%B8%AD%E5%BF%83%E5%8C%BA%C2%B7%E6%9C%B1%E5%AE%B6%E8%A7%92%E9%95%87%C2%B7%EF%BC%88%E4%BF%AF%E6%8B%8D%EF%BC%89.jpg",
           "intro": "朱家角是上海近郊最具代表性的江南水鄉古鎮，明清石橋、白牆黛瓦與沿河老街相映，鎮上餐廳多主打本幫與江南口味，扎肉、阿婆粽、燻拉絲、響油鱔糊與河蝦都是必嚐的當地味。建議挑一家臨河有冷氣的二樓座位用餐，既能避開七月正午的悶熱，又能邊吃邊看搖櫓船往來，最適合帶長輩慢慢歇腳。長者腸胃較敏感，點菜可請店家少油少糖、避免生食河鮮；用完餐趁午後再回市區逛法租界，避開最曬的時段。",
@@ -317,6 +334,7 @@
         {
           "type": "spot",
           "time": "14:30",
+          "stay": "約 1 小時",
           "name": "武康大樓",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Wukang_Mansion_%2820191114161507%29.jpg/960px-Wukang_Mansion_%2820191114161507%29.jpg",
           "intro": "武康大樓是上海法租界的經典地標，由建築師鄔達克設計，外型像一艘乘風破浪的巨輪，紅磚牆面與弧形轉角充滿濃濃的歐式風情，是全上海最熱門的 IG 打卡點之一。從朱家角返回市區後先來此地，下午光線斜照、拍大樓全景最有味道；建議在斜對街的人行道安全捕捉全景。7 月天氣炎熱，拍完照可轉進周邊武康路、安福路的梧桐林蔭與咖啡小店歇腳吹冷氣，讓媽媽也能輕鬆喝杯飲料避暑；過馬路拍照時請特別留意往來車輛。",
@@ -331,6 +349,7 @@
         {
           "type": "spot",
           "time": "15:30",
+          "stay": "約 2 小時",
           "name": "武康路・安福路",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Wukang_Road_near_Huaihai_Road%2C_Shanghai.jpg/960px-Wukang_Road_near_Huaihai_Road%2C_Shanghai.jpg",
           "intro": "武康路與相鄰的安福路是上海前法租界最具代表性的梧桐街區，沿途布滿百年洋房、老別墅與獨棟花園住宅，街角的武康大樓更是必拍地標，整條路充滿濃濃法式風情與文藝氣息。如今這裡聚集了大量網紅咖啡店、買手選物店與小眾品牌，邊散步邊逛店、坐下喝杯咖啡格外愜意。下午茶時段找間有冷氣的咖啡店歇腳補充水分最理想，傍晚梧桐成蔭較涼爽、光線也最適合拍照；武康大樓路口人潮多，過馬路要顧好媽媽與同行家人。",
@@ -345,6 +364,7 @@
         {
           "type": "spot",
           "time": "18:30",
+          "stay": "約 1.5 小時",
           "name": "陸家嘴晚餐",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Oriental_Pearl_Tower_in_Shanghai.jpg/960px-Oriental_Pearl_Tower_in_Shanghai.jpg",
           "intro": "陸家嘴坐擁東方明珠與環球金融中心等摩天樓群，周邊商場如正大廣場、國金中心 IFC 匯集各式餐廳，從本幫菜、粵點到景觀餐廳應有盡有，邊用餐邊賞江景十分愜意。建議挑有冷氣的商場樓層用餐避暑，並選靠窗或高樓層座位，飯後即可就近沿濱江步道散步、等候入夜後的燈光夜景。帶長輩可點口味溫和的菜色、避免太晚用餐；因隔日清晨即要啟程返台，賞完夜景後早些回飯店休息。",
@@ -353,6 +373,7 @@
         {
           "type": "spot",
           "time": "20:00",
+          "stay": "約 1 小時",
           "name": "陸家嘴・東方明珠夜景",
           "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Oriental_Pearl_Tower_in_Shanghai.jpg/960px-Oriental_Pearl_Tower_in_Shanghai.jpg",
           "intro": "陸家嘴是上海的金融心臟，東方明珠塔、上海中心與環球金融中心三大摩天樓在此並列，入夜後整片天際線燈火璀璨，是上海最具代表性的夜景名片。建議晚餐後沿黃浦江畔的濱江步道散步，等天色全暗、燈光全亮時最為壯觀，江邊觀景平台是全家合照的最佳取景點。七月夜晚仍悶熱潮濕，記得帶水、穿透氣衣物，並讓媽媽在江邊長椅稍作休息；因隔天清晨要返台，賞完夜景別待太晚，早點打滴回飯店。",

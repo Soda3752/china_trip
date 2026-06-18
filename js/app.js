@@ -271,6 +271,7 @@ function spotRow(it, state) {
             <h3 class="card-title">${esc(it.name)} ${badge}</h3>
             ${nav}
           </div>
+          ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
           ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}
         </div>
       </article>
