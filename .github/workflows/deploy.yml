@@ -29,6 +29,11 @@ jobs:
         with:
           enablement: true
 
+      - name: Stamp build date (Asia/Taipei)
+        run: |
+          echo "{\"builtAt\":\"$(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')\"}" > build-info.json
+          cat build-info.json
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

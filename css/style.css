@@ -58,6 +58,14 @@ body {
   opacity: 0.85;
   letter-spacing: 0.02em;
 }
+.topbar-updated {
+  margin: 4px 0 0;
+  font-size: 0.66rem;
+  opacity: 0.62;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.topbar-updated[hidden] { display: none; }
 
 /* ---------- Tabbar ---------- */
 .tabbar {

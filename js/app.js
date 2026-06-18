@@ -20,6 +20,7 @@ async function init() {
   }
   recompute();
   renderHeader();
+  renderUpdatedAt();
   renderTabs();
   APP.activeDay = APP.state.dayIndex; // 預設開「今天」
   selectTab(APP.activeDay, { scroll: false });
@@ -59,6 +60,22 @@ function renderHeader() {
   document.getElementById('app-title').textContent = m.title;
   document.getElementById('app-sub').textContent =
     `${m.dateRange} · ${m.people}人 · ${m.hotel}`;
+}
+
+// 最後更新時間（由 CI 部署時產生的 build-info.json，台北 UTC+8）
+async function renderUpdatedAt() {
+  const el = document.getElementById('app-updated');
+  if (!el) return;
+  try {
+    const res = await fetch('build-info.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const { builtAt } = await res.json();
+    if (!builtAt) return;
+    el.textContent = `最後更新：${builtAt}`;
+    el.hidden = false;
+  } catch (_) {
+    /* 本地預覽無此檔 → 不顯示 */
+  }
 }
 
 // ---- Tabs ----
