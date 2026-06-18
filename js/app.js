@@ -24,6 +24,7 @@ async function init() {
   APP.activeDay = APP.state.dayIndex; // 預設開「今天」
   selectTab(APP.activeDay, { scroll: false });
   bindNowButton();
+  attachMapHandler();
   scrollToCurrent();
   // 每分鐘更新一次高亮（覆寫模式下不自動跳動）
   APP.refreshTimer = setInterval(() => {
@@ -154,7 +155,8 @@ function renderDay(dayIndex) {
 function spotRow(it, state) {
   const time = it.time ? `<time class="spot-time">${esc(it.time)}</time>` : '';
   const nav = it.map
-    ? `<a class="btn-nav" href="${amapSearchUrl(it.map)}" target="_blank" rel="noopener">導航 ↗</a>`
+    ? `<a class="btn-nav" data-map href="${amapSearchUrl(it.map)}" target="_blank" rel="noopener"
+         data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
     : '';
   const badge = state === 'state-current'
     ? '<span class="now-badge">現在</span>'
@@ -188,7 +190,8 @@ function transitRow(it, state) {
       </span>
       ${url ? '<span class="transit-go">開地圖 ↗</span>' : ''}`;
   const body = url
-    ? `<a class="transit-chip" href="${url}" target="_blank" rel="noopener">${inner}</a>`
+    ? `<a class="transit-chip" data-map href="${url}" target="_blank" rel="noopener"
+         data-coord="${esc((it.to && it.to.coord) || '')}" data-name="${esc((it.to && it.to.keyword) || '')}" data-mode="${esc(it.mode || '')}">${inner}</a>`
     : `<div class="transit-chip transit-chip--static">${inner}</div>`;
   return `
     <li class="tl-item tl-transit ${state}">
@@ -274,6 +277,36 @@ function bindNowButton() {
       selectTab(APP.state.dayIndex, { scroll: false });
       scrollToCurrent();
     }
+  });
+}
+
+// 手機點擊「導航」/交通串接 → 先試喚起高德 App，開不起來才退回網頁
+function attachMapHandler() {
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-map]');
+    if (!a) return;
+    const coord = a.getAttribute('data-coord');
+    if (!coord) return; // 無座標 → 直接走 href（網頁搜尋）
+    const web = a.getAttribute('href');
+    const native = amapNativeUrl(
+      { coord, keyword: a.getAttribute('data-name') || '' },
+      a.getAttribute('data-mode') || '',
+      web
+    );
+    if (!native) return; // 桌機 → 正常開網頁
+    e.preventDefault();
+    if (amapPlatform() === 'android') {
+      window.location.href = native; // intent 自帶網頁 fallback
+      return;
+    }
+    // iOS：嘗試喚起 App，1.5 秒內若頁面仍可見（App 沒開）→ 退回網頁
+    const timer = setTimeout(() => {
+      if (!document.hidden) window.location.href = web;
+    }, 1500);
+    const cancel = () => clearTimeout(timer);
+    document.addEventListener('visibilitychange', cancel, { once: true });
+    window.addEventListener('pagehide', cancel, { once: true });
+    window.location.href = native;
   });
 }
 

@@ -45,3 +45,45 @@ function amapNavUrl(to, mode) {
   }
   return amapSearchUrl(to);
 }
+
+// ---- 直接喚起高德 App（手機）----
+// 平台偵測
+function amapPlatform() {
+  const ua = navigator.userAgent || '';
+  if (/Android/i.test(ua)) return 'android';
+  if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+  // iPadOS 13+ 會偽裝成 Mac
+  if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) return 'ios';
+  return 'other';
+}
+
+// 交通方式 → App scheme 的路線類型 t（0 駕車 / 1 公交 / 2 步行）
+function amapSchemeType(mode) {
+  if (mode === 'walk') return 2;
+  if (mode === 'taxi') return 0;
+  return 1; // metro / maglev
+}
+
+// 組出 App scheme URL（無座標或桌機回 null，交由網頁 fallback）
+// place: { coord:"lng,lat", keyword }；mode 有值 → 路線規劃，否則 → 標點
+// webUrl: Android intent 失敗時的網頁 fallback
+function amapNativeUrl(place, mode, webUrl) {
+  if (!place || !place.coord) return null;
+  const plat = amapPlatform();
+  if (plat === 'other') return null;
+  const [lon, lat] = place.coord.split(',').map((s) => s.trim());
+  const name = encodeURIComponent(place.keyword || '');
+  const isRoute = !!mode;
+
+  if (plat === 'ios') {
+    return isRoute
+      ? `iosamap://path?sourceApplication=${AMAP_SRC}&dlat=${lat}&dlon=${lon}&dname=${name}&dev=0&t=${amapSchemeType(mode)}`
+      : `iosamap://viewMap?sourceApplication=${AMAP_SRC}&poiname=${name}&lat=${lat}&lon=${lon}&dev=0`;
+  }
+  // Android：用 intent，並帶 browser_fallback_url（未裝 App 時自動開網頁）
+  const q = isRoute
+    ? `route?sourceApplication=${AMAP_SRC}&dlat=${lat}&dlon=${lon}&dname=${name}&dev=0&t=${amapSchemeType(mode)}`
+    : `viewMap?sourceApplication=${AMAP_SRC}&poiname=${name}&lat=${lat}&lon=${lon}&dev=0`;
+  const fb = encodeURIComponent(webUrl || '');
+  return `intent://${q}#Intent;scheme=androidamap;package=com.autonavi.minimap;S.browser_fallback_url=${fb};end`;
+}
