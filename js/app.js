@@ -8,6 +8,7 @@ const MODE_LABEL = { walk: '步行', taxi: '打車', metro: '地鐵', maglev: '�
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
+  fillIntroClock(); // 依當前上海時間填入翻牌時鐘，讓入場數字與「現在」一致
   try {
     const res = await fetch('data/itinerary.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -16,6 +17,7 @@ async function init() {
   } catch (e) {
     document.getElementById('content').innerHTML =
       `<p class="load-error">行程資料載入失敗：${e.message}<br>請確認 data/itinerary.json 存在且為合法 JSON。</p>`;
+    hideIntro();
     return;
   }
   recompute();
@@ -29,12 +31,48 @@ async function init() {
   attachMapHandler();
   bindHeaderCollapse();
   scrollToCurrent();
+  playIntro(); // 一次性：時間軸依序浮現 → 翻牌時鐘淡出
   // 每分鐘更新一次高亮（覆寫模式下不自動跳動）
   APP.refreshTimer = setInterval(() => {
     if (APP.state && APP.state.today && APP.state.today.isOverride) return;
     recompute();
     if (typeof APP.activeDay === 'number') selectTab(APP.activeDay, { scroll: false, keep: true });
   }, 60 * 1000);
+}
+
+// ---- 入場：翻牌時鐘 ----
+const PREFERS_REDUCED = () =>
+  window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// 依當前上海時間填入翻牌四位數（HH:mm）
+function fillIntroClock() {
+  const loader = document.getElementById('deco-loader');
+  if (!loader) return;
+  const now = shanghaiNow();
+  const [h10, h1, , m10, m1] = now.label; // "HH:mm" → 取四位數字（跳過冒號）
+  const set = (sel, ch) => { const el = loader.querySelector(sel); if (el) el.textContent = ch; };
+  set('[data-h10]', h10);
+  set('[data-h1]', h1);
+  set('[data-m10]', m10);
+  set('[data-m1]', m1);
+}
+
+// 一次性入場：時間軸卡片依序浮現，再淡出翻牌時鐘
+function playIntro() {
+  if (APP.introDone) return;
+  APP.introDone = true;
+  if (PREFERS_REDUCED()) { hideIntro(); return; }
+  const tl = document.querySelector('.timeline');
+  if (tl) {
+    tl.classList.add('is-entering');
+    tl.querySelectorAll('.tl-item').forEach((el, i) => { el.style.animationDelay = (i * 0.07) + 's'; });
+  }
+  setTimeout(hideIntro, 1900);
+}
+
+function hideIntro() {
+  const loader = document.getElementById('deco-loader');
+  if (loader) loader.classList.add('is-hidden');
 }
 
 // 由 data.coords 為各 map/to 補上座標（已自帶 coord 者不覆蓋）→ 啟用精準標點與真實路線規劃
