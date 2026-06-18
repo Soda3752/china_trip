@@ -4,6 +4,19 @@
 
 const AMAP_SRC = 'shanghai-trip';
 
+// 高德 App 商店資訊（未安裝時引導安裝）
+const AMAP_IOS_APPID = '461703208';            // App Store：高德地图 / AMap Global
+const AMAP_ANDROID_PKG = 'com.autonavi.minimap'; // Android 套件名
+const AMAP_ANDROID_STORE = `https://play.google.com/store/apps/details?id=${AMAP_ANDROID_PKG}`;
+
+// 依平台回傳商店下載連結（桌機回 null）
+function amapStoreUrl(plat) {
+  const p = plat || amapPlatform();
+  if (p === 'ios') return `https://apps.apple.com/app/id${AMAP_IOS_APPID}`;
+  if (p === 'android') return AMAP_ANDROID_STORE;
+  return null;
+}
+
 // 交通方式 → 高德路線規劃 mode
 function amapNavMode(mode) {
   if (mode === 'walk') return 'walk';
@@ -66,8 +79,9 @@ function amapSchemeType(mode) {
 
 // 組出 App scheme URL（無座標或桌機回 null，交由網頁 fallback）
 // place: { coord:"lng,lat", keyword }；mode 有值 → 路線規劃，否則 → 標點
-// webUrl: Android intent 失敗時的網頁 fallback
-function amapNativeUrl(place, mode, webUrl) {
+// Android intent 未安裝時的 browser_fallback_url 指向 Play 商店（引導安裝）；
+// iOS 的「未安裝」行為由 app.js 以逾時偵測後彈窗處理。
+function amapNativeUrl(place, mode) {
   if (!place || !place.coord) return null;
   const plat = amapPlatform();
   if (plat === 'other') return null;
@@ -84,6 +98,7 @@ function amapNativeUrl(place, mode, webUrl) {
   const q = isRoute
     ? `route?sourceApplication=${AMAP_SRC}&dlat=${lat}&dlon=${lon}&dname=${name}&dev=0&t=${amapSchemeType(mode)}`
     : `viewMap?sourceApplication=${AMAP_SRC}&poiname=${name}&lat=${lat}&lon=${lon}&dev=0`;
-  const fb = encodeURIComponent(webUrl || '');
-  return `intent://${q}#Intent;scheme=androidamap;package=com.autonavi.minimap;S.browser_fallback_url=${fb};end`;
+  // 未安裝 → fallback 至 Play 商店引導安裝（取代原本退回網頁版地圖）
+  const fb = encodeURIComponent(AMAP_ANDROID_STORE);
+  return `intent://${q}#Intent;scheme=androidamap;package=${AMAP_ANDROID_PKG};S.browser_fallback_url=${fb};end`;
 }
