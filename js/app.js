@@ -253,7 +253,7 @@ function renderDay(dayIndex) {
 }
 
 function spotRow(it, state) {
-  const time = it.time ? `<time class="spot-time">${esc(it.time)}</time>` : '';
+  const time = it.time ? `<time class="spot-time">${esc(fmt12(it.time))}</time>` : '';
   const nav = it.map
     ? `<a class="btn-nav" data-map href="${amapSearchUrl(it.map)}" target="_blank" rel="noopener"
          data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
@@ -473,6 +473,17 @@ function scrollToCurrent() {
     const el = document.querySelector('.state-current') || document.querySelector('.state-next');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+}
+
+// "HH:mm"(24h) → 中文時段 12 小時制，如 13:00→「下午 1:00」、20:30→「晚上 8:30」、04:30→「凌晨 4:30」
+// 內部判斷一律用原始 24h 字串，這裡只負責顯示轉換；非 HH:mm 格式原樣回傳。
+function fmt12(t) {
+  const m = /^(\d{1,2}):(\d{2})$/.exec(String(t || ''));
+  if (!m) return t;
+  const h = +m[1];
+  const period = h < 6 ? '凌晨' : h < 12 ? '上午' : h === 12 ? '中午' : h < 18 ? '下午' : '晚上';
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${period} ${h12}:${m[2]}`;
 }
 
 // ---- utils ----
