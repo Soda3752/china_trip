@@ -38,7 +38,7 @@
           "type": "spot",
           "time": "13:00",
           "name": "落地浦東機場",
-          "image": null,
+          "image": "images/shanghai-airport.png",
           "intro": "（簡介待補）班機抵達上海浦東國際機場，準備入境。",
           "map": { "keyword": "上海浦東國際機場", "city": "上海" }
         },
@@ -46,7 +46,7 @@
           "type": "spot",
           "time": "14:30",
           "name": "完成入境",
-          "image": null,
+          "image": "images/shanghai-airport.png",
           "intro": "（簡介待補）通關取行李，準備前往市區。"
         },
         {
@@ -109,7 +109,7 @@
           "type": "spot",
           "time": "22:00",
           "name": "返回飯店",
-          "image": null,
+          "image": "images/atour-hotel.png",
           "intro": "（簡介待補）第一天輕鬆收尾，明天有大行程。",
           "map": { "keyword": "亞朵酒店 南京東路", "city": "上海" }
         }
@@ -195,7 +195,7 @@
           "type": "spot",
           "time": "21:30",
           "name": "返回飯店",
-          "image": null,
+          "image": "images/atour-hotel.png",
           "intro": "（簡介待補）",
           "map": { "keyword": "亞朵酒店 南京東路", "city": "上海" }
         }
@@ -234,7 +234,7 @@
           "type": "spot",
           "time": "12:30",
           "name": "午餐（室內餐廳）",
-          "image": null,
+          "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）選室內餐廳吹冷氣休息，午間 12–14 點最熱。",
           "map": { "keyword": "上海迪士尼樂園", "city": "上海" }
         },
@@ -242,7 +242,7 @@
           "type": "spot",
           "time": "14:00",
           "name": "下午場熱門設施",
-          "image": null,
+          "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）七個小矮人礦山車・瘋狂動物城・雷鳴山漂流。",
           "map": { "keyword": "上海迪士尼樂園", "city": "上海" }
         },
@@ -250,7 +250,7 @@
           "type": "spot",
           "time": "17:00",
           "name": "自由活動",
-          "image": null,
+          "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）媽媽可在商店休息，年輕人繼續衝熱門設施。",
           "map": { "keyword": "上海迪士尼樂園", "city": "上海" }
         },
@@ -258,7 +258,7 @@
           "type": "spot",
           "time": "20:30",
           "name": "煙火秀",
-          "image": null,
+          "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）不要錯過！",
           "map": { "keyword": "上海迪士尼樂園", "city": "上海" }
         },
@@ -266,7 +266,7 @@
           "type": "spot",
           "time": "21:30",
           "name": "遊園尾聲・拍照留念",
-          "image": null,
+          "image": "images/disney-fireworks.jpeg",
           "intro": "（簡介待補）",
           "map": { "keyword": "上海迪士尼樂園", "city": "上海" }
         },
@@ -338,7 +338,7 @@
           "type": "spot",
           "time": "13:30",
           "name": "飯店午休",
-          "image": null,
+          "image": "images/atour-hotel.png",
           "intro": "（簡介待補）避開午間最熱時段，養足精神。",
           "map": { "keyword": "亞朵酒店 南京東路", "city": "上海" }
         },
@@ -388,7 +388,7 @@
           "type": "spot",
           "time": "22:00",
           "name": "返回飯店・整理行李",
-          "image": null,
+          "image": "images/atour-hotel.png",
           "intro": "（簡介待補）整理行李，明天清晨出發返台。",
           "map": { "keyword": "亞朵酒店 南京東路", "city": "上海" }
         }
@@ -419,7 +419,7 @@
           "type": "spot",
           "time": "06:00",
           "name": "浦東機場・辦理登機",
-          "image": null,
+          "image": "images/shanghai-airport.png",
           "intro": "（簡介待補）早到寬裕，國際線建議至少提前 2 小時到。",
           "map": { "keyword": "上海浦東國際機場", "city": "上海" }
         },
@@ -427,7 +427,7 @@
           "type": "spot",
           "time": "08:00",
           "name": "班機起飛・返回台灣",
-          "image": null,
+          "image": "images/shanghai-airport.png",
           "intro": "（簡介待補）祝旅途愉快，留下滿滿美好的回憶！"
         }
       ],
