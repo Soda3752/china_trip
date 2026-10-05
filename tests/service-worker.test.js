@@ -1,7 +1,7 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
 function worker(assets=['index.html','data/travel-guide.json'],failed=null,redirect=null){
  const listeners={},stores=new Map();let offline=false,claimed=false;
- const base='https://example.test/china_trip/';
+ const base='https://example.test/okinawa_trip/';
  const normal=k=>new URL(typeof k==='string'?k:k.url,base).href;
  const caches={async open(name){if(!stores.has(name))stores.set(name,new Map());const entries=stores.get(name);return {async put(k,v){entries.set(normal(k),v.clone());},async match(k,opts){const url=new URL(normal(k));for(const [key,v]of entries){const other=new URL(key);if(opts&&opts.ignoreSearch){url.search='';other.search='';}if(url.href===other.href)return v.clone();}},async keys(){return [...entries.keys()].map(url=>({url}));}};},async keys(){return [...stores.keys()];},async delete(k){return stores.delete(k);}};
  const fetch=async req=>{const url=normal(req);if(offline||url.endsWith(failed||'NEVER'))throw Error('offline');const response=new Response(url.endsWith('offline-assets.json')?JSON.stringify({assets}):redirect&&url.endsWith(redirect)?'REDIRECT':'PUBLIC '+url,{status:200});if(redirect&&url.endsWith(redirect))Object.defineProperty(response,'url',{value:'https://external.test/redirected'});return response;};
@@ -15,10 +15,10 @@ test('precache validates whole manifest, STATUS is exact, own-cache activation, 
  await w.lifecycle('install');assert.equal((await w.status()).ready,true);
  await w.caches.open('unrelated-cache');await w.caches.open('okinawa-trip-old');
  await w.lifecycle('activate');assert.ok(w.claimed);assert.ok(w.stores.has('unrelated-cache'));assert.ok(!w.stores.has('okinawa-trip-old'));
- w.setOffline();assert.match(await (await w.request('https://example.test/china_trip/data/travel-guide.json?v=123')).text(),/PUBLIC/);
- assert.match(await (await w.request('https://example.test/china_trip/day-five','navigate')).text(),/index.html/);
+ w.setOffline();assert.match(await (await w.request('https://example.test/okinawa_trip/data/travel-guide.json?v=123')).text(),/PUBLIC/);
+ assert.match(await (await w.request('https://example.test/okinawa_trip/day-five','navigate')).text(),/index.html/);
  assert.equal(await w.request('https://maps.google.com/','navigate'),null);
- const cache=await w.caches.open([...w.stores.keys()].find(k=>k.startsWith('okinawa-trip-')));const entry=w.stores.get([...w.stores.keys()].find(k=>k.startsWith('okinawa-trip-')));entry.delete('https://example.test/china_trip/data/travel-guide.json');assert.equal((await w.status()).ready,false);
+ const cache=await w.caches.open([...w.stores.keys()].find(k=>k.startsWith('okinawa-trip-')));const entry=w.stores.get([...w.stores.keys()].find(k=>k.startsWith('okinawa-trip-')));entry.delete('https://example.test/okinawa_trip/data/travel-guide.json');assert.equal((await w.status()).ready,false);
 });
 
 test('failed precache never declares ready; external and traversal entries reject install',async()=>{
@@ -28,14 +28,14 @@ test('failed precache never declares ready; external and traversal entries rejec
 });
 test('unknown files return honest offline response; POST and external fonts bypass worker',async()=>{
  const w=worker();await w.lifecycle('install');w.setOffline();
- const res=await w.request('https://example.test/china_trip/not-cached.json');assert.equal(res.status,503);
+ const res=await w.request('https://example.test/okinawa_trip/not-cached.json');assert.equal(res.status,503);
  assert.equal(await w.request('https://fonts.googleapis.com/css'),null);
- let intercepted=false;w.listeners.fetch({request:{method:'POST',url:'https://example.test/china_trip/index.html'},respondWith(){intercepted=true;}});assert.equal(intercepted,false);
+ let intercepted=false;w.listeners.fetch({request:{method:'POST',url:'https://example.test/okinawa_trip/index.html'},respondWith(){intercepted=true;}});assert.equal(intercepted,false);
 });
 
 test('cross-origin redirected manifest is never cached',async()=>{const w=worker(['index.html'],null,'offline-assets.json');await assert.rejects(w.lifecycle('install'));assert.equal((await w.status()).ready,false);});
 
 test('network redirects are not stored as same-origin public assets',async()=>{
- const w=worker();await w.lifecycle('install');w.setRedirect('index.html');await w.request('https://example.test/china_trip/index.html');w.setOffline();
- const cached=await w.request('https://example.test/china_trip/index.html');assert.match(await cached.text(),/PUBLIC/);
+ const w=worker();await w.lifecycle('install');w.setRedirect('index.html');await w.request('https://example.test/okinawa_trip/index.html');w.setOffline();
+ const cached=await w.request('https://example.test/okinawa_trip/index.html');assert.match(await cached.text(),/PUBLIC/);
 });

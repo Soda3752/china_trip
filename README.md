@@ -107,4 +107,4 @@ node --test tests/*.test.js
 
 ## 部署
 
-推送 `main` 由 `.github/workflows/deploy.yml` 部署至 GitHub Pages：`https://soda3752.github.io/china_trip/`。部署產生 `build-info.json` 供最後更新與版本刷新使用，不手動提交此產物。來源手冊／PDF 與敏感名單不得加入 Git。提交與推送前必須完成驗證並獲授權。
+推送 `main` 由 `.github/workflows/deploy.yml` 部署至 GitHub Pages：`https://soda3752.github.io/okinawa_trip/`。部署產生 `build-info.json` 供最後更新與版本刷新使用，不手動提交此產物。來源手冊／PDF 與敏感名單不得加入 Git。提交與推送前必須完成驗證並獲授權。

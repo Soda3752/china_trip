@@ -61,4 +61,4 @@ node --test tests/*.test.js
 
 ## 部署與變更範圍
 
-`main` 推送觸發 `.github/workflows/deploy.yml`，網站為 `https://soda3752.github.io/china_trip/`。`build-info.json` 由 CI 產生，不手動提交。保留海島主題與全域函式載入方式，改內容優先只改 JSON；需改時間或地圖契約時同步更新測試。多人協作遵守檔案所有權，不修改他人負責檔案；提交或推送前需經授權並完成驗證。
+`main` 推送觸發 `.github/workflows/deploy.yml`，網站為 `https://soda3752.github.io/okinawa_trip/`。`build-info.json` 由 CI 產生，不手動提交。保留海島主題與全域函式載入方式，改內容優先只改 JSON；需改時間或地圖契約時同步更新測試。多人協作遵守檔案所有權，不修改他人負責檔案；提交或推送前需經授權並完成驗證。
