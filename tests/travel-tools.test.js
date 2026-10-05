@@ -22,10 +22,10 @@ test('hotel navigation targets its full address in directions rather than bookin
  const tool=api(); assert.equal(typeof tool.hotelNavigationUrl,'function');
  const url=new URL(tool.hotelNavigationUrl(guide.hotel));
  assert.equal(url.pathname,'/maps/dir/');assert.equal(url.searchParams.get('api'),'1');
- assert.equal(url.searchParams.get('destination'),guide.hotel.name+' '+guide.hotel.address);
+ assert.equal(url.searchParams.get('destination'),guide.hotel.address);
  assert.equal(url.searchParams.get('travelmode'),'driving');assert.equal(url.searchParams.has('query'),false);
  const launch=require('../js/maps-launch.js').buildLaunch(url.href,{userAgent:'iPhone'});
- assert.equal(new URL(launch.appUrl).searchParams.get('daddr'),guide.hotel.name+' '+guide.hotel.address);
+ assert.equal(new URL(launch.appUrl).searchParams.get('daddr'),guide.hotel.address);
  assert.equal(new URL(launch.appUrl).searchParams.get('q'),null);
 });
 let chromium,browserPath;
@@ -48,6 +48,10 @@ test('standalone public fixture integrates hotel, five days, info and reload/cro
  await page.locator('#trip-hotel summary').click();
  await page.waitForFunction(before=>window.synced>before,beforeToggle);
  assert.match(await page.locator('#trip-hotel').innerText(),/098-862-4555/);
+ const colors=await page.locator('#trip-hotel').evaluate(el=>({text:getComputedStyle(el).color,link:getComputedStyle(el.querySelector('.trip-actions a')).color,bg:getComputedStyle(el.querySelector('.trip-actions a')).backgroundColor}));
+ assert.equal(colors.text,'rgb(255, 255, 255)');
+ assert.equal(colors.link,'rgb(18, 77, 85)');
+ assert.equal(colors.bg,'rgb(255, 253, 248)');
  assert.ok(await page.evaluate(()=>window.synced>=2));
  for(let day=0;day<5;day++){
  await page.evaluate(day=>display(day),day); await page.waitForSelector('[data-trip-panel]');

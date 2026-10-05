@@ -7,7 +7,7 @@
  function writeChecks(store,value){try{store.setItem(KEY,JSON.stringify(clean(value)));return true;}catch(_){return false;}}
  function clearChecks(store){try{store.removeItem(KEY);return true;}catch(_){return false;}}
  function offlineMessage(message,version){if(message.version!==version)return '新版離線資料待更新，關閉本站分頁後重新開啟。外部服務仍需網路。';return message.ready===true?'本站離線內容已完整儲存；外部服務仍需網路。':'本站離線內容尚未完整儲存；請保持網路連線。';}
- function hotelNavigationUrl(hotel){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(hotel.name+' '+hotel.address)+'&travelmode=driving';}
+ function hotelNavigationUrl(hotel){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(hotel.address)+'&travelmode=driving';}
  root.TripTools={KEY,readChecks,writeChecks,clearChecks,offlineMessage,hotelNavigationUrl};
 })(typeof globalThis!=='undefined'?globalThis:this);
 
