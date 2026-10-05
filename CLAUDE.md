@@ -2,7 +2,17 @@
 
 ## 專案本質
 
-手機優先的沖繩 5 日 4 夜靜態行程網站，日期 **2026-10-05 至 2026-10-09**。純 HTML、CSS、原生 JavaScript，無框架、無 npm 依賴。保留既有視覺設計、時間軸、分頁、翻牌時鐘、「回到現在」、版本更新及 GitHub Pages 部署。
+手機優先的沖繩 5 日 4 夜靜態行程網站，日期 **2026-10-05 至 2026-10-09**。純 HTML、CSS、原生 JavaScript，無框架、無 npm 依賴。使用海島旅程筆記主題，保留時間軸、分頁、翻牌時鐘、「回到現在」、版本更新及 GitHub Pages 部署。
+
+## 主題與可及性
+
+- 主要介面為 Explore 每日行程瀏覽，不做大型宣傳 hero；精簡海水標頭、橫向日期膠囊、圓形節點與抽象波浪。
+- CSS tokens：`--sand #fff8ed`、`--surface #fffdf8`、`--ink #163547`、`--muted #526775`、`--ocean #087e8b`、`--ocean-deep #086471`、`--seafoam #e3f2ed`、`--coral #b74432`、`--coral-soft #fff0e8`、`--line #cadfd9`；卡片 `--radius: 22px`。
+- 字體僅 DM Sans 與 Noto Sans TC，sans-serif 替代；不恢復 Cinzel、襯線、墨綠鎏金或菱形軌道。
+- 時間標籤保留正常文流並換行；控制項至少 44px，鍵盤焦點明顯，過去卡片不降低文字透明度。320px／390px 檢查長標籤、資訊表格及頁面無水平溢出。
+- 收合沿用 `.head-collapsed` 與 JavaScript 量測的 `--topbar-h`；不可寫死標頭高度。保留 loader／hide／FAB／tab IDs 與行為 hooks。
+- loader 預設不顯示，只有資料成功初始化後加入 `.is-ready`；`.is-hidden`、無 JavaScript、載入失敗與減少動態偏好都不得遮住內容。減少動態時同時停用程式化平滑捲動。
+- 裝飾 SVG 與時間軸軌道使用 `aria-hidden="true"`；照片有替代文字，出處在本文下方，不蓋住時間或影像。
 
 ## 內容與來源
 
@@ -26,7 +36,7 @@
 - Day 4 全部 `time: null`，不應錯誤顯示定時「現在／即將」。
 - 台灣集合、起飛、返台抵達的 `time` 存日本等值，`timeLabel` 清楚標台灣原時刻：07:00 → 08:00、10:00 → 11:00、14:10 → 15:10。
 - Day 3 `16:30` 為浮潛預計結束，必須保留「預計」與天候／教練限制。
-- `image: null` 使用現有佔位；新增圖片必須確認適合目的地與使用權利。
+- `image: null` 或圖片載入失敗使用抽象海岸紋理，不冒充實景；新增圖片必須確認適合目的地與使用權利。選填 `imageAlt`、`imageCaption`、`imageSourceUrl`、`imageCredit`、`imageLicense`；代表性照片在 caption 明確寫「示意」，來源只接受有效且不帶帳密的 HTTPS 網址。
 - `transit`（需要才使用）：`mode`、`desc`、`to: {keyword, city}`；不推定車程、車資。
 - `info` 延續 `renderInfo()` 結構：`transportTable`（`from/method/cost/note`）、`budget`（`item/perPerson/note`）、`checklist`、`didiGuide`、`notes`、`apps`（`name/use`）。`didiGuide` 是相容舊 schema 的技術名稱，內容為日本自由活動交通提醒。標題欄位 `budgetTitle`、`transportGuideTitle`、`notesTitle` 供渲染使用，不改成其他目的地內容。
 
@@ -50,4 +60,4 @@ node --test tests/*.test.js
 
 ## 部署與變更範圍
 
-`main` 推送觸發 `.github/workflows/deploy.yml`，網站為 `https://soda3752.github.io/china_trip/`。`build-info.json` 由 CI 產生，不手動提交。保留既有設計與全域函式載入方式，改內容優先只改 JSON；需改時間或地圖契約時同步更新測試。多人協作遵守檔案所有權，不修改他人負責檔案；提交或推送前需經授權並完成驗證。
+`main` 推送觸發 `.github/workflows/deploy.yml`，網站為 `https://soda3752.github.io/china_trip/`。`build-info.json` 由 CI 產生，不手動提交。保留海島主題與全域函式載入方式，改內容優先只改 JSON；需改時間或地圖契約時同步更新測試。多人協作遵守檔案所有權，不修改他人負責檔案；提交或推送前需經授權並完成驗證。

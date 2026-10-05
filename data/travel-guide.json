@@ -1,0 +1,27 @@
+{
+  "hotel": {
+    "name": "Daiwa Roynet Hotel Naha Omoromachi（非 PREMIER）",
+    "address": "〒900-0006 沖縄県那覇市おもろまち1-1-12",
+    "phone": "098-862-4555",
+    "taxi": "ダイワロイネットホテル那覇おもろまちまでお願いします。住所は那覇市おもろまち1-1-12です。プレミアではありません。",
+    "source": "https://daiwaroynet.jp/ko/naha-omoromachi/assets/hotel_brochure.pdf",
+    "homepage": "https://www.daiwaroynet.jp/naha-omoromachi/"
+  },
+  "mealSource": "公開行程／京王國際旅行社《沖繩悠遊5日》旅遊手冊整理；實際依領隊確認。",
+  "days": [
+    {"day":1,"meals":"早餐：自理｜午餐：自理｜晚餐：團體包含餐","reminders":["CI310：10/5 台灣 10:00 起飛、日本 12:40 抵達；非即時航班狀態。"]},
+    {"day":2,"meals":"早餐：飯店｜午餐：INO 自助餐｜晚餐：EBISU","reminders":["蝦蝦飯是行程停留點，不替代手冊的 INO 午餐。"]},
+    {"day":3,"meals":"早餐：飯店｜午餐：自理｜晚餐：18:30 Goen","reminders":["參加浮潛：7 名參加者，14:00 開始、預計 16:30 結束；依天候及教練指示調整。","不參加浮潛：美國村自由活動；接回集合精確時間、地點需向領隊確認，不自行推定。","兩組會合後預計 18:00 回飯店，18:30 Goen 晚餐。晚餐後遊覽車服務結束，自行安排回飯店交通。"]},
+    {"day":4,"meals":"早餐：飯店｜午餐：自理｜晚餐：自理","reminders":["全日自由活動，無團體旅遊車；以下兩條為選擇建議，不是固定行程。","市區輕鬆路線：飯店 → 新都心 DFS → 國際通／市場本通 → 飯店。","獨立較遠路線：自行前往 Ashibinaa Outlet → 飯店；自行確認交通、營業資訊及返店方式，不承諾時間或車資。"]},
+    {"day":5,"meals":"早餐：飯店｜午餐：機上餐","reminders":["10:50 大廳集合並完成退房；11:00 離開飯店；11:30 抵達機場。早餐後整理行李，勿安排會影響退房的遠程活動。","CI311：10/9 日本 13:40 起飛、台灣 14:10 抵達；非即時航班狀態。"]}
+  ],
+  "official": [
+    {"label":"沖繩官方天氣預報（即時資料需連網）","url":"https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=471000"},
+    {"label":"沖繩氣象台颱風資訊","url":"https://www.jma-net.go.jp/okinawa/typhoon/information/index.html"},
+    {"label":"中華航空官方航班動態（查 CI310／CI311）","url":"https://www.china-airlines.com/cn/en/fly/flight-status/index"},
+    {"label":"Visit Japan Web 官方入境申報","url":"https://www.vjw.digital.go.jp/"},
+    {"label":"Visit Japan Web 官方服務說明","url":"https://services.digital.go.jp/en/visit-japan-web/"},
+    {"label":"JNTO 旅客安全資訊與 Hotline 說明","url":"https://www.jnto.go.jp/projects/visitor-support/safetravelinfo.html"}
+  ],
+  "emergency":"緊急警察：110；火警／救護：119。Japan Visitor Hotline：050-3816-2787，全年 24 小時，支援英／中／韓語；提供旅客協助，非緊急派遣或訂位服務。"
+}

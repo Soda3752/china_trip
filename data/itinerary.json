@@ -19,106 +19,196 @@
           "type": "spot",
           "time": "08:00",
           "name": "台中機場集合",
-          "image": null,
+          "image": "images/okinawa/a-taichung-t2.jpg",
           "intro": "台中機場第二航廈，中華航空團體櫃檯集合；實際櫃檯請依現場看板確認。",
           "timeLabel": "台灣 07:00（日本 08:00）",
           "map": {
             "keyword": "台中國際機場 第二航廈",
             "city": "台中"
-          }
+          },
+          "imageCaption": "台中國際機場第二航廈內部（2025 年）",
+          "imageAlt": "台中國際機場第二航廈內部（2025 年）",
+          "imageCredit": "Saimmx / Wikimedia Commons / CC0 1.0",
+          "imageLicense": "CC0 1.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:20250808_150839_Taichung_Airport_T2_terminal.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "11:00",
           "name": "CI310 台中起飛",
-          "image": null,
+          "image": "images/okinawa/a-taichung-t2.jpg",
           "intro": "中華航空 CI310：RMQ 台中 10:00（台灣時間）出發，OKA 那霸 12:40（日本時間）抵達。",
           "timeLabel": "台灣 10:00（日本 11:00）",
           "map": {
             "keyword": "台中國際機場",
             "city": "台中"
-          }
+          },
+          "imageCaption": "台中國際機場第二航廈內部（2025 年；與第二航廈項目共用同一張實景照片）",
+          "imageAlt": "台中國際機場第二航廈內部（2025 年；與第二航廈項目共用同一張實景照片）",
+          "imageCredit": "Saimmx / Wikimedia Commons / CC0 1.0",
+          "imageLicense": "CC0 1.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:20250808_150839_Taichung_Airport_T2_terminal.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "12:40",
           "name": "CI310 抵達那霸",
-          "image": null,
+          "image": "images/okinawa/a-naha-airport.jpg",
           "intro": "抵達時間為日本時間；辦理入境並領取行李。",
           "timeLabel": "日本 12:40",
           "map": {
             "keyword": "那覇空港",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那覇空港國內線離境大廳（2011 年）",
+          "imageAlt": "那覇空港國內線離境大廳（2011 年）",
+          "imageCredit": "Mk2010 / Wikimedia Commons / CC BY-SA 3.0",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Naha_Airport_Departure_Lobby.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "13:30",
           "name": "離開那霸機場",
-          "image": null,
+          "image": "images/okinawa/a-naha-airport.jpg",
           "intro": "離開機場前往糸滿魚市場；手冊未列市場的獨立抵達時間。",
           "map": {
             "keyword": "那覇空港",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那覇空港國內線離境大廳（2011 年）",
+          "imageAlt": "那覇空港國內線離境大廳（2011 年）",
+          "imageCredit": "Mk2010 / Wikimedia Commons / CC BY-SA 3.0",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Naha_Airport_Departure_Lobby.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "糸滿魚市場",
-          "image": null,
+          "image": "images/okinawa/a-itoman-osakana-center.jpg",
           "intro": "依手冊順序前往糸滿魚市場；停留與抵達時間以現場通知為準。",
           "timeLabel": "機場出發後（時間待確認）",
           "map": {
             "keyword": "糸満市お魚センター",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "糸満漁業協同組合お魚センター外觀（2010 年）",
+          "imageAlt": "糸満漁業協同組合お魚センター外觀（2010 年）",
+          "imageCredit": "Kugel / Wikimedia Commons / CC BY-SA 3.0",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Osakana_Center%2C_Itoman.JPG",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "瀨長島海風露台",
-          "image": null,
+          "image": "images/okinawa/a-umikaji-terrace.jpg",
           "intro": "午後前往瀨長島海風露台；實際時間由導遊確認。",
           "timeLabel": "午後（時間待確認）",
           "map": {
             "keyword": "瀬長島 ウミカジテラス",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "瀬長島ウミカジテラス外觀（2017 年）",
+          "imageAlt": "瀬長島ウミカジテラス外觀（2017 年）",
+          "imageCredit": "Kugel~commonswiki / Wikimedia Commons / CC BY-SA 4.0",
+          "imageLicense": "CC BY-SA 4.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Umikaji_Terrace_Senagajima.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "PARCO CITY",
-          "image": null,
+          "image": "images/okinawa/a-parco-city.jpg",
           "intro": "接續前往 PARCO CITY；依手冊順序安排，不另推定抵達時刻。",
           "timeLabel": "午後（時間待確認）",
           "map": {
             "keyword": "サンエー 浦添西海岸 PARCO CITY",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "サンエー浦添西海岸 PARCO CITY 計程車乘車處夜景（2025 年）",
+          "imageAlt": "サンエー浦添西海岸 PARCO CITY 計程車乘車處夜景（2025 年）",
+          "imageCredit": "Naha Mama Pavilionz / Wikimedia Commons / CC0 1.0",
+          "imageLicense": "CC0 1.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:JP_%E6%97%A5%E6%9C%AC_Japan_%E6%B2%96%E7%B9%A9_OKINAWA_Parco_City_Mall_taxi_stand_night_January_2025_R12S.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Cropped 180 pixels from bottom to remove camera date/time imprint; JPEG re-encoded at quality 95. Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 902
         },
         {
           "type": "spot",
           "time": "18:30",
           "name": "晚餐・福州園",
-          "image": null,
+          "image": "images/okinawa/b-fukushuen.jpg",
           "intro": "手冊安排：魚＆日式南蠻炸雞套餐，晚餐包含於行程。",
           "map": {
             "keyword": "福州園 那覇",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那覇福州園實景：中式園林的龍柱與庭園景觀，並非晚餐或餐廳照片。",
+          "imageAlt": "那覇福州園實景：中式園林的龍柱與庭園景觀，並非晚餐或餐廳照片。",
+          "imageCredit": "LordAmeth",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_pillars_at_Fukushuen.JPG",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 1280
         },
         {
           "type": "spot",
           "time": "20:00",
           "name": "飯店入住",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "四晚皆住宿於 Daiwa Roynet Hotel Naha Omoromachi 那霸歌町大和ROYNET飯店。辦理入住後休息。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         }
       ],
       "tips": "早餐、午餐自理；晚餐包含。日本比台灣快 1 小時，集合與台中起飛時間已明確標示台灣時間。行程為手冊參考，依導遊、天候與交通調整。",
@@ -134,93 +224,173 @@
           "type": "spot",
           "time": "09:00",
           "name": "飯店出發",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "享用飯店早餐後出發，前往許田道之驛。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "許田道之驛",
-          "image": null,
+          "image": "images/okinawa/b-kyoda.jpg",
           "intro": "飯店出發後的首站；手冊未列獨立抵達時間。",
           "timeLabel": "出發後（時間待確認）",
           "map": {
             "keyword": "道の駅 許田",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "道の駅許田實景，沖繩名護市。",
+          "imageAlt": "道の駅許田實景，沖繩名護市。",
+          "imageCredit": "Kugel~commonswiki",
+          "imageLicense": "CC BY-SA 4.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Michinoeki_Kyoda_202108_01.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 640
         },
         {
           "type": "spot",
           "time": null,
           "name": "古宇利島・心形岩",
-          "image": null,
+          "image": "images/okinawa/b-kouri-heart-rock.jpg",
           "intro": "上午前往古宇利島與心形岩，時間以現場安排為準。",
           "timeLabel": "上午（時間待確認）",
           "map": {
             "keyword": "古宇利島 ハートロック",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "古宇利島ティーヌ浜的ハートロック心形岩實景。",
+          "imageAlt": "古宇利島ティーヌ浜的ハートロック心形岩實景。",
+          "imageCredit": "Kugel~commonswiki",
+          "imageLicense": "CC BY-SA 4.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 640
         },
         {
           "type": "spot",
           "time": null,
           "name": "古宇利島蝦蝦飯專門店",
-          "image": null,
+          "image": "images/okinawa/b-garlic-shrimp-representative.jpg",
           "intro": "手冊列為停留點；不是本日包含的午餐，午餐安排為海洋博公園 INO 自助餐。",
           "timeLabel": "上午（時間待確認）",
           "map": {
             "keyword": "古宇利島 蝦蝦飯",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "【代表性餐點照片，非古宇利島蝦蝦飯店家】夏威夷 Haleiwa 的奶油蒜香蝦飯，用作相關蒜香蝦飯料理示意。",
+          "imageAlt": "【代表性餐點照片，非古宇利島蝦蝦飯店家】夏威夷 Haleiwa 的奶油蒜香蝦飯，用作相關蒜香蝦飯料理示意。",
+          "imageCredit": "Zheng Zhou",
+          "imageLicense": "CC BY-SA 4.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Butter_Garlic_Shrimp_(with_rice),_Haleiwa,_Hawaii.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 720
         },
         {
           "type": "spot",
           "time": "13:00",
           "name": "午餐・海洋博公園 INO 自助餐",
-          "image": null,
+          "image": "images/okinawa/b-ocean-expo-park.jpg",
           "intro": "手冊安排的包含午餐：海洋博公園 INO 自助餐。",
           "map": {
             "keyword": "海洋博公園 INO",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "【園區環境照片，非 INO 餐廳內景】沖繩海洋博公園實景，作為 INO 所在園區的環境介紹。",
+          "imageAlt": "【園區環境照片，非 INO 餐廳內景】沖繩海洋博公園實景，作為 INO 所在園區的環境介紹。",
+          "imageCredit": "Abasaa",
+          "imageLicense": "Public domain (author release)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ocean_Expo_Park.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 720
         },
         {
           "type": "spot",
           "time": null,
           "name": "美麗海水族館",
-          "image": null,
+          "image": "images/okinawa/b-churaumi-whale-shark.jpg",
           "intro": "午後參觀美麗海水族館，門票已安排；入館與集合時間由導遊確認。",
           "timeLabel": "午後（時間待確認）",
           "map": {
             "keyword": "沖縄美ら海水族館",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "沖縄美ら海水族館內鯨鯊與水槽實景。",
+          "imageAlt": "沖縄美ら海水族館內鯨鯊與水槽實景。",
+          "imageCredit": "pelican from Tokyo, Japan",
+          "imageLicense": "CC BY-SA 2.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Whale_Shark_-_Churaumi_aquarium,_Okinawa,_Japan.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 960,
+          "imageHeight": 643
         },
         {
           "type": "spot",
           "time": "18:00",
           "name": "晚餐・EBISU 阿古豬涮涮鍋放題",
-          "image": null,
+          "image": "images/okinawa/c-shabu-shabu.jpg",
           "intro": "手冊安排：EBISU 阿古豬涮涮鍋放題；未指定分店，請依導遊安排。",
           "map": {
             "keyword": "EBISU あぐー 沖縄",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "涮涮鍋示意，非指定餐廳照片（京都牛肉涮涮鍋，非 EBISU 或阿古豬）",
+          "imageAlt": "涮涮鍋示意，非指定餐廳照片（京都牛肉涮涮鍋，非 EBISU 或阿古豬）",
+          "imageCredit": "jimg944 / Wikimedia Commons",
+          "imageLicense": "CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Shabu-shabu-01.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "19:30",
           "name": "返回飯店",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "返回那霸歌町大和ROYNET飯店休息。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         }
       ],
       "tips": "早餐為飯店早餐，午餐為 INO 自助餐，晚餐為 EBISU 阿古豬涮涮鍋放題。水族館門票已安排；行程依當地確認、天候與交通調整。",
@@ -236,116 +406,216 @@
           "type": "spot",
           "time": "08:30",
           "name": "飯店出發",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "飯店早餐後出發。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "09:00",
           "name": "西來院達磨寺",
-          "image": null,
+          "image": "images/okinawa/c-sairai-in.jpg",
           "intro": "手冊安排參訪西來院達磨寺。",
           "map": {
             "keyword": "西来院 達磨寺 沖縄",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那霸西來院（達磨寺）實景",
+          "imageAlt": "那霸西來院（達磨寺）實景",
+          "imageCredit": "運動会プロテインパワー / Wikimedia Commons",
+          "imageLicense": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sairai-in,_Naha.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "永旺夢樂城沖繩來客夢",
-          "image": null,
+          "image": "images/okinawa/c-aeon-rycom.jpg",
           "intro": "上午接續前往來客夢，實際停留時間以導遊通知為準。",
           "timeLabel": "上午（時間待確認）",
           "map": {
             "keyword": "イオンモール沖縄ライカム",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "永旺夢樂城沖繩來客夢入口實景",
+          "imageAlt": "永旺夢樂城沖繩來客夢入口實景",
+          "imageCredit": "Kugel~commonswiki / Wikimedia Commons",
+          "imageLicense": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:AEON_Mall_Okinawa_Rycom_01.JPG",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "美國村・琉球工房",
-          "image": null,
+          "image": "images/okinawa/c-american-village.jpg",
           "intro": "接續前往美國村與琉球工房，午餐自理。未參加浮潛者留在美國村。",
           "timeLabel": "之後（時間待確認）",
           "map": {
             "keyword": "美浜アメリカンビレッジ 琉球工房",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "美浜美國村街區實景，非琉球工房店內照片（攝於 2011 年）",
+          "imageAlt": "美浜美國村街區實景，非琉球工房店內照片（攝於 2011 年）",
+          "imageCredit": "Abasaa / Wikimedia Commons",
+          "imageLicense": "Public domain",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mihama_Town_Resort_American_Village_1.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "14:00",
           "name": "青洞浮潛（參加者 7 名）",
-          "image": null,
+          "image": "images/okinawa/c-cape-maeda.jpg",
           "intro": "手冊列浮潛參加者 7 名，並不代表全團人數。活動須依天候與教練判斷；未參加者留在美國村。請帶泳裝、毛巾與防滑涼鞋。",
           "map": {
             "keyword": "沖縄 青の洞窟",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "沖繩真榮田岬、青洞周邊景色，非洞內或水下照片",
+          "imageAlt": "沖繩真榮田岬、青洞周邊景色，非洞內或水下照片",
+          "imageCredit": "Arichika Taniguchi / Wikimedia Commons",
+          "imageLicense": "CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC_-_panoramio.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 193
         },
         {
           "type": "spot",
           "time": "16:30",
           "name": "浮潛預計結束",
-          "image": null,
+          "image": "images/okinawa/c-cape-maeda.jpg",
           "intro": "手冊預計 16:30 結束，實際依天候與教練安排；不是保證結束時間。",
           "timeLabel": "預計 16:30（依天候／教練調整）",
           "map": {
             "keyword": "沖縄 青の洞窟",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "沖繩真榮田岬、青洞周邊景色，非洞內或水下照片",
+          "imageAlt": "沖繩真榮田岬、青洞周邊景色，非洞內或水下照片",
+          "imageCredit": "Arichika Taniguchi / Wikimedia Commons",
+          "imageLicense": "CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC_-_panoramio.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 193
         },
         {
           "type": "spot",
           "time": null,
           "name": "返回美國村接未參加者",
-          "image": null,
+          "image": "images/okinawa/c-american-village.jpg",
           "intro": "浮潛之後返回美國村，接回未參加浮潛的同行者；集合時間請依現場通知。",
           "timeLabel": "浮潛後（時間待確認）",
           "map": {
             "keyword": "美浜アメリカンビレッジ",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "美浜美國村街區實景（攝於 2011 年）",
+          "imageAlt": "美浜美國村街區實景（攝於 2011 年）",
+          "imageCredit": "Abasaa / Wikimedia Commons",
+          "imageLicense": "Public domain",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mihama_Town_Resort_American_Village_1.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "18:00",
           "name": "返回飯店",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "手冊安排先返回飯店。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "18:30",
           "name": "晚餐・五苑烤肉放題",
-          "image": null,
+          "image": "images/okinawa/d-yakiniku-food.jpg",
           "intro": "晚餐為五苑烤肉放題；餐後遊覽車服務結束，需自行返回飯店。未指定餐廳分店。",
           "map": {
             "keyword": "焼肉 五苑 沖縄",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "燒肉餐點示意，非指定分店",
+          "imageAlt": "燒肉餐點示意，非指定分店",
+          "imageCredit": "Hajime NAKANO / Wikimedia Commons (originally Flickr), CC BY 2.0; unchanged",
+          "imageLicense": "CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Yakiniku_meat.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "imageRepresentative": true,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 640,
+          "imageHeight": 480
         },
         {
           "type": "spot",
           "time": null,
           "name": "餐後自行返回飯店",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "遊覽車服務於晚餐後結束；請自行安排回飯店交通，並確認同行者都已安全返回。",
           "timeLabel": "餐後（時間自行安排）",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         }
       ],
       "tips": "早餐為飯店早餐；午餐自理；晚餐為五苑烤肉放題。浮潛有天候限制，未參加者留在美國村；參加者人數不等於全團人數。",
@@ -361,49 +631,89 @@
           "type": "spot",
           "time": null,
           "name": "飯店早餐・自由活動",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "本日全日自由活動，無團體旅遊車。飯店早餐包含；午餐與晚餐自理。",
           "timeLabel": "全日（自行安排）",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "建議選項・國際通與市場本通",
-          "image": null,
+          "image": "images/okinawa/d-kokusai-street.jpg",
           "intro": "僅為手冊建議，不是已確認的團體景點或必走順序。交通、停留與用餐自行安排。",
           "timeLabel": "自選建議（非固定行程）",
           "map": {
             "keyword": "国際通り 市場本通り 那覇",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那霸國際通街景（2009 年照片；非市場本通內部）",
+          "imageAlt": "那霸國際通街景（2009 年照片；非市場本通內部）",
+          "imageCredit": "663highland / Wikimedia Commons, CC BY 2.5; Wikimedia 1280px thumbnail, no crop",
+          "imageLicense": "CC BY 2.5 — https://creativecommons.org/licenses/by/2.5/",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Kokusai-dori02ss3200.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 853
         },
         {
           "type": "spot",
           "time": null,
           "name": "建議選項・新都心與 DFS",
-          "image": null,
+          "image": "images/okinawa/d-dfs-okinawa.jpg",
           "intro": "僅為自由活動建議；可依興趣選擇，不代表安排參訪或購物時段。",
           "timeLabel": "自選建議（非固定行程）",
           "map": {
             "keyword": "DFS 沖縄 那覇 新都心",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那霸新都心 DFS／T Galleria 沖繩建築外觀（2008 年照片，非機場免稅店）",
+          "imageAlt": "那霸新都心 DFS／T Galleria 沖繩建築外觀（2008 年照片，非機場免稅店）",
+          "imageCredit": "Taisyo / Wikimedia Commons, CC BY-SA 3.0; original photograph, unchanged",
+          "imageLicense": "CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:DFS_GALLERIA_OKINAWA01.JPG",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": null,
           "name": "建議選項・ASHIBINAA Outlet",
-          "image": null,
+          "image": "images/okinawa/d-ashibinaa-outlet.jpg",
           "intro": "位於豐見城，屬自選建議；交通與時間自行安排。",
           "timeLabel": "自選建議（非固定行程）",
           "map": {
             "keyword": "沖縄アウトレットモール あしびなー 豊見城",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "豐見城市沖繩 Outlet Mall Ashibinaa（あしびなー）實景（2009 年照片）",
+          "imageAlt": "豐見城市沖繩 Outlet Mall Ashibinaa（あしびなー）實景（2009 年照片）",
+          "imageCredit": "Abasaa (あばさー) / Wikimedia Commons; public domain; unchanged",
+          "imageLicense": "Public domain (PD-self), worldwide release by copyright holder",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Okinawa_Outlet_Mall_Ashibinaa.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1024,
+          "imageHeight": 768
         }
       ],
       "tips": "無團體旅遊車；飯店早餐包含，午餐與晚餐自理。以上僅為建議，非固定路線。攜帶飯店卡、手機與日圓，結伴並以單軌電車或計程車安全返店。",
@@ -419,58 +729,108 @@
           "type": "spot",
           "time": "10:50",
           "name": "完成退房・大廳集合",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "請先完成退房，攜帶所有行李至大廳集合。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "11:00",
           "name": "飯店出發",
-          "image": null,
+          "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "依手冊安排離開飯店，前往那霸機場。",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageAlt": "Daiwa Roynet Hotel Naha Omoromachi 飯店建築外觀（2017 年；非 Premier 分館）",
+          "imageCredit": "Abasaa / あばさー / Wikimedia Commons / Public domain (PD-self)",
+          "imageLicense": "Public domain (PD-self)",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Daiwa_Roynet_Hotel_Naha_Omoromachi.JPG",
+          "imageLicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "11:30",
           "name": "抵達那霸機場",
-          "image": null,
+          "image": "images/okinawa/a-naha-airport.jpg",
           "intro": "準備辦理中華航空 CI311 登機手續。",
           "map": {
             "keyword": "那覇空港",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那覇空港國內線離境大廳（2011 年）",
+          "imageAlt": "那覇空港國內線離境大廳（2011 年）",
+          "imageCredit": "Mk2010 / Wikimedia Commons / CC BY-SA 3.0",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Naha_Airport_Departure_Lobby.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "13:40",
           "name": "CI311 那霸起飛",
-          "image": null,
+          "image": "images/okinawa/a-naha-airport.jpg",
           "intro": "中華航空 CI311：OKA 那霸 13:40（日本時間）起飛，RMQ 台中 14:10（台灣時間）抵達。",
           "timeLabel": "日本 13:40",
           "map": {
             "keyword": "那覇空港",
             "city": "沖繩"
-          }
+          },
+          "imageCaption": "那覇空港國內線離境大廳（2011 年）",
+          "imageAlt": "那覇空港國內線離境大廳（2011 年）",
+          "imageCredit": "Mk2010 / Wikimedia Commons / CC BY-SA 3.0",
+          "imageLicense": "CC BY-SA 3.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Naha_Airport_Departure_Lobby.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         },
         {
           "type": "spot",
           "time": "15:10",
           "name": "CI311 抵達台中",
-          "image": null,
+          "image": "images/okinawa/a-taichung-t2.jpg",
           "intro": "台中抵達為台灣 14:10，換算日本時間 15:10；網站時間判斷使用日本時間。",
           "timeLabel": "台灣 14:10（日本 15:10）",
           "map": {
             "keyword": "台中國際機場",
             "city": "台中"
-          }
+          },
+          "imageCaption": "台中國際機場第二航廈內部（2025 年；與第二航廈項目共用同一張實景照片）",
+          "imageAlt": "台中國際機場第二航廈內部（2025 年；與第二航廈項目共用同一張實景照片）",
+          "imageCredit": "Saimmx / Wikimedia Commons / CC0 1.0",
+          "imageLicense": "CC0 1.0",
+          "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:20250808_150839_Taichung_Airport_T2_terminal.jpg",
+          "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "imageRepresentative": false,
+          "imageChanges": "None; original image downloaded unchanged Resized to maximum 1280 pixels and JPEG compressed for mobile display.",
+          "imageWidth": 1280,
+          "imageHeight": 960
         }
       ],
       "tips": "早餐為飯店早餐；午餐依航空公司安排。退房時確認所有行李與證件，航班時刻以航空公司及現場通知為準。",

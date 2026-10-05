@@ -6,6 +6,13 @@ const MODE_ICON = { walk: '🚶', taxi: '🚕', metro: '🚇', maglev: '🚄' };
 const MODE_LABEL = { walk: '步行', taxi: '打車', metro: '地鐵', maglev: '磁浮' };
 
 document.addEventListener('DOMContentLoaded', init);
+// Capture lazy-image failures too; no inline handlers or broken-image icons.
+document.addEventListener('error', (event) => {
+  const image = event.target;
+  if (image && image.matches && image.matches('.media-img')) {
+    image.outerHTML = mediaHTML({ name: image.dataset.spotName || image.alt, image: null });
+  }
+}, true);
 
 async function init() {
   fillIntroClock(); // 資料尚未載入時預設日本 UTC+9
@@ -63,6 +70,8 @@ function playIntro() {
   if (APP.introDone) return;
   APP.introDone = true;
   if (PREFERS_REDUCED()) { hideIntro(); return; }
+  const loader = document.getElementById('deco-loader');
+  if (loader) loader.classList.add('is-ready');
   const tl = document.querySelector('.timeline');
   if (tl) {
     tl.classList.add('is-entering');
@@ -158,14 +167,15 @@ function renderTabs() {
     btn.setAttribute('role', 'tab');
     btn.dataset.idx = i;
     const isToday = APP.state.mode === 'during' && APP.state.dayIndex === i;
-    btn.innerHTML = `<span class="tab-day">D${d.day}</span><span class="tab-date">${d.date.slice(5).replace('-', '/')}</span>${isToday ? '<span class="tab-dot" title="今天"></span>' : ''}`;
+    btn.innerHTML = `<span class="tab-day">D${d.day}</span><span class="tab-date">${d.date.slice(5).replace('-', '/')}</span>${isToday ? '<span class="tab-dot" title="今天" aria-hidden="true"></span>' : ''}`;
     btn.addEventListener('click', () => selectTab(i, { scroll: true }));
     nav.appendChild(btn);
   });
   const info = document.createElement('button');
   info.className = 'tab tab--info';
+  info.setAttribute('role', 'tab');
   info.dataset.idx = 'info';
-  info.innerHTML = `<span class="tab-day">ℹ️</span><span class="tab-date">資訊</span>`;
+  info.innerHTML = `<span class="tab-day" aria-hidden="true">ℹ️</span><span class="tab-date">資訊</span>`;
   info.addEventListener('click', () => selectTab('info', { scroll: true }));
   nav.appendChild(info);
 }
@@ -183,7 +193,7 @@ function selectTab(idx, opts = {}) {
     APP.activeDay = idx;
     renderDay(idx);
   }
-  if (opts.scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (opts.scroll) window.scrollTo({ top: 0, behavior: PREFERS_REDUCED() ? 'auto' : 'smooth' });
   // 顯示/隱藏「回到現在」
   const nowBtn = document.getElementById('now-btn');
   nowBtn.hidden = !(APP.state.mode === 'during');
@@ -250,9 +260,20 @@ function spotRow(it, state) {
   const badge = state === 'state-current'
     ? '<span class="now-badge">時刻參考</span>'
     : state === 'state-next' ? '<span class="next-badge">下個定時</span>' : '';
+  let sourceUrl = '';
+  try {
+    const url = new URL(it.imageSourceUrl);
+    if (url.protocol === 'https:' && !url.username && !url.password) sourceUrl = url.href;
+  } catch (_) { /* Invalid or absent attribution URL: render text only. */ }
+  const credit = [it.imageCredit, it.imageLicense].filter(Boolean).join(' · ');
+  const attribution = it.image && (it.imageCaption || credit || sourceUrl)
+    ? `<div class="image-attribution">${it.imageCaption ? `<p class="image-caption">${esc(it.imageCaption)}</p>` : ''}
+        ${sourceUrl ? `<a class="image-source" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">照片來源${credit ? ` · ${esc(credit)}` : ''} ↗</a>` : credit ? `<p class="image-credit">${esc(credit)}</p>` : ''}
+        ${it.imageChanges ? `<details class="image-credit"><summary>圖片處理與授權說明</summary><p>${esc(it.imageChanges)}</p><p>來源頁提供完整授權條款；本地圖片衍生檔沿用原圖授權。</p></details>` : ''}</div>`
+    : '';
   return `
     <li class="tl-item tl-spot ${state}">
-      <div class="tl-rail"><span class="tl-node"></span></div>
+      <div class="tl-rail" aria-hidden="true"><span class="tl-node"></span></div>
       <article class="card">
         <div class="card-media">${mediaHTML(it)}${time}</div>
         <div class="card-body">
@@ -262,6 +283,7 @@ function spotRow(it, state) {
           </div>
           ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
           ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}
+          ${attribution}
         </div>
       </article>
     </li>`;
@@ -273,7 +295,7 @@ function transitRow(it, state) {
   const dest = it.to && it.to.keyword
     ? `<span class="transit-dest">▸ 即將前往 ${esc(it.to.keyword)}</span>` : '';
   const inner = `
-      <span class="transit-icon">${icon}</span>
+      <span class="transit-icon" aria-hidden="true">${icon}</span>
       <span class="transit-text">
         <span class="transit-desc">${esc(it.desc || MODE_LABEL[it.mode] || '移動')}</span>
         ${dest}
@@ -284,28 +306,27 @@ function transitRow(it, state) {
     : `<div class="transit-chip transit-chip--static">${inner}</div>`;
   return `
     <li class="tl-item tl-transit ${state}">
-      <div class="tl-rail tl-rail--dashed"></div>
+      <div class="tl-rail tl-rail--dashed" aria-hidden="true"></div>
       ${body}
     </li>`;
 }
 
 function mediaHTML(it) {
   if (it.image) {
-    return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.name)}" loading="lazy">`;
+    return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.name)}" data-spot-name="${esc(it.name)}" loading="lazy">`;
   }
-  // 漸層佔位圖：依名稱取色相，固定落在藍～靛範圍以維持藍白主調
-  const hue = 200 + (hashStr(it.name) % 60);
-  const style = `background:linear-gradient(135deg,hsl(${hue} 55% 42%),hsl(${hue + 25} 60% 30%))`;
-  return `<div class="media-ph" style="${style}">
-      <span class="media-ph-name">${esc(it.name)}</span>
+  // 抽象海岸紋理不是景點照片；配色由 CSS 統一管理。
+  return `<div class="media-ph coastal-texture">
       <span class="media-ph-hint">旅程筆記 · 2026</span>
+      <span class="media-ph-name">${esc(it.name)}</span>
+      <svg class="coastal-wave" viewBox="0 0 400 32" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 16 Q50 0 100 16 T200 16 T300 16 T400 16" /></svg>
     </div>`;
 }
 
 function notesHTML(day) {
   const parts = [];
-  if (day.tips) parts.push(`<div class="note note--tip"><span class="note-ico">💡</span><div><strong>小提醒</strong><p>${esc(day.tips)}</p></div></div>`);
-  if (day.transport) parts.push(`<div class="note note--car"><span class="note-ico">🚗</span><div><strong>交通</strong><p>${esc(day.transport)}</p></div></div>`);
+  if (day.tips) parts.push(`<div class="note note--tip"><span class="note-ico" aria-hidden="true">💡</span><div><strong>小提醒</strong><p>${esc(day.tips)}</p></div></div>`);
+  if (day.transport) parts.push(`<div class="note note--car"><span class="note-ico" aria-hidden="true">🚗</span><div><strong>交通</strong><p>${esc(day.transport)}</p></div></div>`);
   return parts.length ? `<section class="notes">${parts.join('')}</section>` : '';
 }
 
@@ -370,7 +391,7 @@ function bindNowButton() {
   });
 }
 
-// 上滑捲過門檻 → 收合頂部標題（藍色 Day 分頁維持至頂）；捲回頂端再展開。
+// 上滑捲過門檻 → 收合海水標頭（Day 分頁維持至頂）；捲回頂端再展開。
 // 用 transform 收合（不觸發 reflow，門檻不會抖動）；加 hysteresis 防臨界閃動。
 function bindHeaderCollapse() {
   const COLLAPSE_AT = 72; // 捲過此距離（px）收合
@@ -400,7 +421,7 @@ function scrollToCurrent() {
   if (APP.state.mode !== 'during' || APP.activeDay !== APP.state.dayIndex) return;
   requestAnimationFrame(() => {
     const el = document.querySelector('.state-current') || document.querySelector('.state-next');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (el) el.scrollIntoView({ behavior: PREFERS_REDUCED() ? 'auto' : 'smooth', block: 'center' });
   });
 }
 
@@ -418,9 +439,4 @@ function fmt12(t) {
 // ---- utils ----
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-function hashStr(s) {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
-  return h;
 }
