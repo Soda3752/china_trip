@@ -1,4 +1,4 @@
-// 上海自由行 — 主程式：載入資料、tab 切換、時間軸渲染、當前景點高亮
+// 沖繩悠遊 — 主程式：載入資料、tab 切換、時間軸渲染、參考行程高亮
 
 const APP = { data: null, state: null, activeDay: 0, refreshTimer: null };
 
@@ -8,13 +8,13 @@ const MODE_LABEL = { walk: '步行', taxi: '打車', metro: '地鐵', maglev: '�
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
-  fillIntroClock(); // 依當前上海時間填入翻牌時鐘，讓入場數字與「現在」一致
+  fillIntroClock(); // 資料尚未載入時預設日本 UTC+9
   if (await checkFreshVersion()) return; // 偵測到新版 → 已觸發強制重載，停止後續初始化
   try {
     const res = await fetch('data/itinerary.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     APP.data = await res.json();
-    enrichCoords(APP.data);
+    fillIntroClock(); // 讀取 meta.timezone 後重新同步入場時鐘
   } catch (e) {
     document.getElementById('content').innerHTML =
       `<p class="load-error">行程資料載入失敗：${e.message}<br>請確認 data/itinerary.json 存在且為合法 JSON。</p>`;
@@ -29,7 +29,7 @@ async function init() {
   APP.activeDay = APP.state.dayIndex; // 預設開「今天」
   selectTab(APP.activeDay, { scroll: false });
   bindNowButton();
-  attachMapHandler();
+
   bindHeaderCollapse();
   scrollToCurrent();
   playIntro(); // 一次性：時間軸依序浮現 → 翻牌時鐘淡出
@@ -45,11 +45,11 @@ async function init() {
 const PREFERS_REDUCED = () =>
   window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// 依當前上海時間填入翻牌四位數（HH:mm）
+// 依旅程當地時間填入翻牌四位數（HH:mm）
 function fillIntroClock() {
   const loader = document.getElementById('deco-loader');
   if (!loader) return;
-  const now = shanghaiNow();
+  const now = tripNow(APP.data ? APP.data.meta.timezone : undefined);
   const [h10, h1, , m10, m1] = now.label; // "HH:mm" → 取四位數字（跳過冒號）
   const set = (sel, ch) => { const el = loader.querySelector(sel); if (el) el.textContent = ch; };
   set('[data-h10]', h10);
@@ -76,22 +76,8 @@ function hideIntro() {
   if (loader) loader.classList.add('is-hidden');
 }
 
-// 由 data.coords 為各 map/to 補上座標（已自帶 coord 者不覆蓋）→ 啟用精準標點與真實路線規劃
-function enrichCoords(data) {
-  const dict = data.coords || {};
-  const fill = (place) => {
-    if (place && place.keyword && !place.coord && dict[place.keyword]) {
-      place.coord = dict[place.keyword];
-    }
-  };
-  data.days.forEach((d) => d.items.forEach((it) => {
-    if (it.type === 'spot') fill(it.map);
-    else if (it.type === 'transit') fill(it.to);
-  }));
-}
-
 function recompute() {
-  const now = shanghaiNow();
+  const now = tripNow(APP.data.meta.timezone);
   APP.state = resolveState(APP.data, now);
   APP.state.today = now;
 }
@@ -99,8 +85,9 @@ function recompute() {
 function renderHeader() {
   const m = APP.data.meta;
   document.getElementById('app-title').textContent = m.title;
+  document.title = m.title;
   document.getElementById('app-sub').textContent =
-    `${m.dateRange} · ${m.people}人 · ${m.hotel}`;
+    [m.dateRange, m.people ? `${m.people}人` : '', m.hotel].filter(Boolean).join(' · ');
 }
 
 // sessionStorage 安全存取（隱私模式下存取可能 throw）
@@ -132,7 +119,7 @@ async function checkFreshVersion() {
   return false;
 }
 
-// 最後更新時間（由 CI 部署時產生的 build-info.json，台北 UTC+8）
+// 最後更新時間（由 CI 部署時產生的 build-info.json，日本 UTC+9）
 async function renderUpdatedAt() {
   const el = document.getElementById('app-updated');
   if (!el) return;
@@ -236,7 +223,7 @@ function renderDay(dayIndex) {
 
   const rows = day.items.map((it, i) => {
     return it.type === 'spot'
-      ? spotRow(it, itemState(i, 'spot'))
+      ? spotRow(it, timeToMinutes(it.time) === null ? '' : itemState(i, 'spot'))
       : transitRow(it, itemState(i, 'transit'));
   }).join('');
 
@@ -246,6 +233,7 @@ function renderDay(dayIndex) {
       <div class="day-kicker">Day ${day.day} · ${day.date.slice(5).replace('-', '/')}（${day.weekday}）</div>
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
+    <p class="note">日本時間 · 高亮僅為手冊時刻參考，非實際位置；未定時活動依現場通知，行程依導遊與天候調整。</p>
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
   `;
@@ -253,14 +241,15 @@ function renderDay(dayIndex) {
 }
 
 function spotRow(it, state) {
-  const time = it.time ? `<time class="spot-time">${esc(fmt12(it.time))}</time>` : '';
-  const nav = it.map
-    ? `<a class="btn-nav" data-map href="${amapSearchUrl(it.map)}" target="_blank" rel="noopener"
-         data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
+  const label = it.timeLabel || (it.time ? `日本 ${fmt12(it.time)}` : '時間依現場通知');
+  const time = `<span class="spot-time">${esc(label)}</span>`;
+  const mapUrl = googleSearchUrl(it.map);
+  const nav = mapUrl
+    ? `<a class="btn-nav" href="${esc(mapUrl)}" target="_blank" rel="noopener">導航 ↗</a>`
     : '';
   const badge = state === 'state-current'
-    ? '<span class="now-badge">現在</span>'
-    : state === 'state-next' ? '<span class="next-badge">即將</span>' : '';
+    ? '<span class="now-badge">時刻參考</span>'
+    : state === 'state-next' ? '<span class="next-badge">下個定時</span>' : '';
   return `
     <li class="tl-item tl-spot ${state}">
       <div class="tl-rail"><span class="tl-node"></span></div>
@@ -279,7 +268,7 @@ function spotRow(it, state) {
 }
 
 function transitRow(it, state) {
-  const url = amapNavUrl(it.to, it.mode);
+  const url = googleDirectionsUrl(it.to, it.mode);
   const icon = MODE_ICON[it.mode] || '➡️';
   const dest = it.to && it.to.keyword
     ? `<span class="transit-dest">▸ 即將前往 ${esc(it.to.keyword)}</span>` : '';
@@ -291,8 +280,7 @@ function transitRow(it, state) {
       </span>
       ${url ? '<span class="transit-go">開地圖 ↗</span>' : ''}`;
   const body = url
-    ? `<a class="transit-chip" data-map href="${url}" target="_blank" rel="noopener"
-         data-coord="${esc((it.to && it.to.coord) || '')}" data-name="${esc((it.to && it.to.keyword) || '')}" data-mode="${esc(it.mode || '')}">${inner}</a>`
+    ? `<a class="transit-chip" href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>`
     : `<div class="transit-chip transit-chip--static">${inner}</div>`;
   return `
     <li class="tl-item tl-transit ${state}">
@@ -310,7 +298,7 @@ function mediaHTML(it) {
   const style = `background:linear-gradient(135deg,hsl(${hue} 55% 42%),hsl(${hue + 25} 60% 30%))`;
   return `<div class="media-ph" style="${style}">
       <span class="media-ph-name">${esc(it.name)}</span>
-      <span class="media-ph-hint">📷 待補圖</span>
+      <span class="media-ph-hint">旅程筆記 · 2026</span>
     </div>`;
 }
 
@@ -345,9 +333,9 @@ function renderInfo() {
       </table></div>
     </section>
     <section class="info-block">
-      <h3 class="info-h">💰 預估費用（台幣・每人參考）</h3>
+      <h3 class="info-h">🍽️ ${esc(info.budgetTitle || '餐食安排・自理項目')}</h3>
       <div class="table-wrap"><table class="info-table">
-        <thead><tr><th>項目</th><th>每人</th><th>備註</th></tr></thead>
+        <thead><tr><th>項目</th><th>安排</th><th>備註</th></tr></thead>
         <tbody>${budgetRows}</tbody>
       </table></div>
     </section>
@@ -356,17 +344,18 @@ function renderInfo() {
       <ul class="checklist">${checklist}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">🚕 滴滴叫車・使用指南</h3>
+      <h3 class="info-h">🚕 ${esc(info.transportGuideTitle || '自由活動・返店交通提醒')}</h3>
       <ul class="bullet">${didi}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">☀️ 7 月上海注意事項</h3>
+      <h3 class="info-h">☀️ ${esc(info.notesTitle || '沖繩旅遊注意事項')}</h3>
       <ul class="bullet">${notes}</ul>
     </section>
     <section class="info-block">
       <h3 class="info-h">📱 實用 App</h3>
       <ul class="bullet">${apps}</ul>
-    </section>`;
+    </section>
+    ${info.source ? `<p class="note">資料來源：${esc(info.source)}</p>` : ''}`;
 }
 
 // ---- 回到現在 ----
@@ -405,66 +394,6 @@ function bindHeaderCollapse() {
   // 轉向／改變視窗寬度會改變標題列高度 → 重新量測對齊
   window.addEventListener('resize', () => requestAnimationFrame(syncTopbarHeight), { passive: true });
   update();
-}
-
-// 手機點擊「導航」/交通串接 → 先試喚起高德 App，開不起來才退回網頁
-function attachMapHandler() {
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[data-map]');
-    if (!a) return;
-    const coord = a.getAttribute('data-coord');
-    if (!coord) return; // 無座標 → 直接走 href（網頁搜尋）
-    const web = a.getAttribute('href');
-    const native = amapNativeUrl(
-      { coord, keyword: a.getAttribute('data-name') || '' },
-      a.getAttribute('data-mode') || ''
-    );
-    if (!native) return; // 桌機 → 正常開網頁
-    e.preventDefault();
-    if (amapPlatform() === 'android') {
-      // intent 自帶 browser_fallback_url：有裝開 App，沒裝自動跳商店引導安裝
-      window.location.href = native;
-      return;
-    }
-    // iOS：嘗試喚起 App，1.5 秒內若頁面仍可見（App 沒開）→ 彈窗引導安裝／改用網頁版
-    const timer = setTimeout(() => {
-      if (!document.hidden) showInstallDialog(web);
-    }, 1500);
-    const cancel = () => clearTimeout(timer);
-    document.addEventListener('visibilitychange', cancel, { once: true });
-    window.addEventListener('pagehide', cancel, { once: true });
-    window.location.href = native;
-  });
-}
-
-// 未偵測到高德 App（iOS）→ 底部彈窗：前往安裝／改用網頁版／取消
-function showInstallDialog(webUrl) {
-  if (document.querySelector('.install-sheet')) return; // 避免重複
-  const overlay = document.createElement('div');
-  overlay.className = 'install-overlay';
-  overlay.innerHTML = `
-    <div class="install-sheet" role="dialog" aria-modal="true" aria-labelledby="install-title">
-      <p class="install-title" id="install-title">尚未偵測到高德地圖 App</p>
-      <p class="install-desc">安裝後導航更精準，<br>或改用網頁版地圖繼續。</p>
-      <button type="button" class="install-btn install-btn--primary" data-act="install">前往安裝高德地圖</button>
-      <button type="button" class="install-btn" data-act="web">改用網頁版地圖</button>
-      <button type="button" class="install-btn install-btn--ghost" data-act="cancel">取消</button>
-    </div>`;
-  const close = () => overlay.remove();
-  overlay.addEventListener('click', (ev) => {
-    const act = ev.target.closest('[data-act]')?.getAttribute('data-act');
-    if (ev.target === overlay || act === 'cancel') return close();
-    if (act === 'install') {
-      const store = amapStoreUrl('ios');
-      if (store) window.location.href = store;
-      return close();
-    }
-    if (act === 'web') {
-      if (webUrl) window.location.href = webUrl;
-      return close();
-    }
-  });
-  document.body.appendChild(overlay);
 }
 
 function scrollToCurrent() {

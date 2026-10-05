@@ -1,91 +1,68 @@
-# 上海 5天4夜 · 自由行網頁
+# 沖繩悠遊 5 日 · 4 夜
 
-手機優先的單頁靜態行程網頁，依當下時間（UTC+8）自動指出「現在該在哪個景點」，每個景點可一鍵導航高德地圖，點與點之間有可點擊的交通串接。部署於 GitHub Pages。
+手機優先的單頁靜態行程網站，旅程為 **2026/10/05–10/09**。保留每日時間軸、資訊分頁、翻牌時鐘、「回到現在」與版本更新提示；無框架、無 npm 依賴、無建置需求。
 
-## 功能
+## 資料來源與限制
 
-- **Day 1–5 分頁 + 資訊分頁**：依今天日期自動開到當天，當前時段景點以暖橘脈動高亮。
-- **時間軸 spine**：填充至「現在」，清楚呈現「已過 / 現在 / 即將」三態。
-- **景點卡片**：景點圖（目前為漸層佔位）＋ 簡介 ＋「導航」鈕。
-- **交通串接**：點擊跳轉高德地圖並帶入「即將前往」目的地。
-- **回到現在**：手動瀏覽其他天後，一鍵回到當前景點。
+行程依 **京王國際旅行社《沖繩悠遊5日》旅遊手冊**整理。公開網站僅包含行程及實用資訊，不收錄旅客姓名、私人電話、分房名單或來源 PDF。手冊時刻是參考安排，實際以導遊、當地確認、天候、交通及航空公司通知為準。
 
-## 改行程：只動一個檔
+- 四晚皆住 Daiwa Roynet Hotel Naha Omoromachi（那霸歌町大和ROYNET飯店）。
+- 全團人數未知，不設定 `meta.people`；Day 3 浮潛 7 名僅是活動參加人數。
+- Day 4 全日自由活動、無團體旅遊車；國際通、新都心／DFS、ASHIBINAA 只是自選建議，不是確認行程。
+- 餐食依手冊保留；Day 2 蝦蝦飯專門店是停留點，包含午餐為 INO 自助餐。
+- 行李、氣候、免稅與其他旅遊提醒為手冊參考，不代表已核實最新規則或即時預報。
 
-編輯 [`data/itinerary.json`](data/itinerary.json)，程式碼完全不用碰。
+## 改行程
 
-每天的 `items` 由兩種節點交錯組成：
+編輯 `data/itinerary.json`，內容與呈現分離。現有資訊分頁維持陣列結構：`transportTable`、`budget`、`checklist`、`didiGuide`、`notes`、`apps`。`didiGuide` 僅為相容舊資料的欄位名稱，內容已改為日本自由活動與返店交通提醒。
 
-```jsonc
-// 景點卡片
+```json
 {
   "type": "spot",
-  "time": "14:30",                 // HH:mm，當前景點判斷依此
-  "name": "豫園",
-  "image": null,                   // null=漸層佔位；補圖改成 "images/yuyuan.jpg"
-  "intro": "明代園林…",            // 簡介
-  "map": { "keyword": "豫園", "city": "上海" }  // 選填，有才顯示「導航」鈕
-}
-
-// 交通串接（夾在兩景點之間）
-{
-  "type": "transit",
-  "mode": "taxi",                  // walk / taxi / metro / maglev
-  "desc": "打滴約 60 分鐘",
-  "to": { "keyword": "豫園", "city": "上海" }   // 點擊→高德，帶入此目的地
+  "time": null,
+  "timeLabel": "午後（時間待確認）",
+  "name": "美麗海水族館",
+  "image": null,
+  "intro": "門票已安排，時間以導遊確認為準。",
+  "map": { "keyword": "沖縄美ら海水族館", "city": "沖繩" }
 }
 ```
 
-### 補景點真圖
+### 時間規則
 
-1. 把圖片放進 `images/`（例如 `images/yuyuan.jpg`）。
-2. 在該 spot 的 `image` 欄填路徑 `"images/yuyuan.jpg"`。
+- `meta.timezone` 為 **`+09:00`（日本）**，時間判斷不得依賴裝置時區。
+- 手冊有精確時間才寫 `time: "HH:mm"`。上午、午後、之後等未指定時刻，使用 `time: null` 與 `timeLabel`；不得猜測精確時刻。
+- Day 4 所有項目都不排精確時間，不應顯示「現在／即將」的定時高亮。
+- 台灣集合與航班時間必須換算日本時間供判斷，但以 `timeLabel` 明確保留台灣時間：集合台灣 07:00 → 日本 `08:00`；CI310 起飛台灣 10:00 → 日本 `11:00`；CI311 抵達台灣 14:10 → 日本 `15:10`。
+- Day 3 浮潛結束 `16:30` 是手冊預計時刻，顯示標籤與說明必須保留「預計」及天候／教練限制。
 
-### 校正景點座標
+### 地圖與圖片
 
-景點與交通的精準度由 `data/itinerary.json` 最上方的 `coords` 表決定（高德 GCJ-02 座標 `"經度,緯度"`）：
+導航採 Google Maps **HTTPS `api=1` 關鍵字搜尋**，不是精確路線保證。`coords` 保持空物件，不加入猜測座標；未指定的餐廳分店或地址不得自行補入。所有圖片目前使用 `image: null` 漸層佔位，後續僅加入已確認地點與授權的圖片。
 
-- 有座標 → 景點「導航」為精準標點、交通串接為真實 A→B 路線規劃。
-- 移除某筆 → 該地點退回關鍵字搜尋（由高德自行解析地點）。
+## 本地預覽與驗證
 
-```jsonc
-"coords": {
-  "豫園": "121.4920,31.2270"
-}
-```
-
-> ⚠️ 目前座標為地標**近似位置**（非實地校準），路線會導到地標附近。建議在手機上對較精確的場所（如「宮宴 北京西路1485號」「亞朵酒店」）各確認一次，必要時在此表微調。
-
-## 本地預覽
+在專案根目錄執行：
 
 ```bash
-cd china_trip
 python3 -m http.server 8000
-# 瀏覽器開 http://localhost:8000
 ```
 
-測試「當前景點」：在網址加 `?now=` 覆寫時間（不影響真實時間）：
+瀏覽 `http://localhost:8000/`。`?now=` 覆寫是**日本當地時間**，例如：
 
+- 旅程前：`http://localhost:8000/?now=2026-10-04T20:00`
+- 行程中：`http://localhost:8000/?now=2026-10-06T13:00`
+- 全日自由活動：`http://localhost:8000/?now=2026-10-08T14:00`
+- 旅程後：`http://localhost:8000/?now=2026-10-10T09:00`
+
+```bash
+python3 -m json.tool data/itinerary.json > /dev/null
+for file in js/*.js; do node --check "$file"; done
+node --test tests/*.test.js
 ```
-http://localhost:8000/?now=2026-07-14T10:30
-```
 
-## 部署到 GitHub Pages
+另以 390px 手機寬度檢查五天與資訊分頁：無水平溢出、無 JS 例外、未定時標籤可讀、航班時區標示正確、地圖連結搜尋正確目的地。
 
-1. 建立 GitHub repo 並推上去：
-   ```bash
-   git init && git add -A && git commit -m "init"
-   git branch -M main
-   git remote add origin <你的 repo URL>
-   git push -u origin main
-   ```
-2. GitHub repo → **Settings → Pages → Build and deployment → Source** 選 **GitHub Actions**。
-3. 之後每次 push 到 `main`，`.github/workflows/deploy.yml` 會自動部署。
-4. 部署完成後網址約為 `https://<帳號>.github.io/<repo>/`。
+## 部署
 
-> `.nojekyll` 已加入，避免 GitHub Pages 的 Jekyll 處理底線開頭資源。
-
-## 注意
-
-- 高德 deeplink 以 `callnative=1` 喚起高德 App，未安裝則開網頁版；建議在 iOS / Android 真機各測一次。
-- 設計文件：`.claude/report/2026_06_18/上海自由行網頁_設計文件.md`。
+推送 `main` 由 `.github/workflows/deploy.yml` 部署至 GitHub Pages：`https://soda3752.github.io/china_trip/`。部署產生 `build-info.json` 供最後更新與版本刷新使用，不手動提交此產物。來源手冊／PDF 與敏感名單不得加入 Git。提交與推送前必須完成驗證並獲授權。

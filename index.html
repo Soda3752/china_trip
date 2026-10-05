@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#1f3a34">
-  <title>上海 5天4夜 · 自由行</title>
+  <title>沖繩悠遊 5 日 · 4 夜</title>
   <!-- 部署版本標記：CI 將 __BUILD_VERSION__ 換成 git SHA；本機開發維持字面值（前端據此略過版本檢查） -->
   <script>window.__BUILD__ = "__BUILD_VERSION__";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="css/style.css?v=__BUILD_VERSION__">
 </head>
 <body>
-  <!-- 入場：翻牌時鐘（數字由 app.js 依當前上海時間填入；無 JS／reduced-motion 時自動隱藏） -->
+  <!-- 入場：翻牌時鐘（數字由 app.js 依旅程日本時間填入；無 JS／reduced-motion 時自動隱藏） -->
   <div id="deco-loader" class="deco-loader" aria-hidden="true">
     <div class="deco-loader-frame">
-      <div class="deco-loader-eyebrow">Shanghai · 1930s</div>
-      <div class="deco-loader-title">上海 5天4夜</div>
+      <div class="deco-loader-eyebrow">Okinawa · Japan</div>
+      <div class="deco-loader-title">沖繩悠遊 5 日</div>
       <div class="flip-clock">
         <div class="flip-card"><span class="flip-digit flip-new" data-h10></span></div>
         <div class="flip-card"><span class="flip-digit flip-new" data-h1></span></div>
@@ -29,7 +29,7 @@
   </div>
 
   <header class="topbar">
-    <h1 id="app-title" class="topbar-title">上海自由行</h1>
+    <h1 id="app-title" class="topbar-title">沖繩悠遊</h1>
     <p id="app-sub" class="topbar-sub"></p>
     <p id="app-updated" class="topbar-updated" hidden></p>
   </header>
@@ -45,10 +45,10 @@
   </button>
 
   <footer class="footer">
-    <p>行程可隨時調整 · 編輯 <code>data/itinerary.json</code> 即可</p>
+    <p>旅遊手冊參考行程 · 實際依導遊與天候調整</p>
   </footer>
 
-  <script src="js/amap.js?v=__BUILD_VERSION__"></script>
+  <script src="js/maps.js?v=__BUILD_VERSION__"></script>
   <script src="js/now.js?v=__BUILD_VERSION__"></script>
   <script src="js/app.js?v=__BUILD_VERSION__"></script>
 </body>
