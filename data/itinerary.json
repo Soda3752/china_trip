@@ -104,11 +104,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "14:00",
+          "timeEstimated": true,
           "name": "糸滿魚市場",
           "image": "images/okinawa/a-itoman-osakana-center.jpg",
           "intro": "依手冊順序前往糸滿魚市場；停留與抵達時間以現場通知為準。",
-          "timeLabel": "機場出發後（時間待確認）",
+          "timeLabel": "預估14:00（時間僅供參考）",
           "map": {
             "keyword": "糸満市お魚センター",
             "city": "沖繩"
@@ -126,11 +127,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "15:00",
+          "timeEstimated": true,
           "name": "瀨長島海風露台",
           "image": "images/okinawa/a-umikaji-terrace.jpg",
           "intro": "午後前往瀨長島海風露台；實際時間由導遊確認。",
-          "timeLabel": "午後（時間待確認）",
+          "timeLabel": "預估15:00（時間僅供參考）",
           "map": {
             "keyword": "瀬長島 ウミカジテラス",
             "city": "沖繩"
@@ -148,11 +150,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "16:15",
+          "timeEstimated": true,
           "name": "PARCO CITY",
           "image": "images/okinawa/a-parco-city.jpg",
-          "intro": "接續前往 PARCO CITY；依手冊順序安排，不另推定抵達時刻。",
-          "timeLabel": "午後（時間待確認）",
+          "intro": "接續前往 PARCO CITY；依手冊順序提供規劃預估，實際抵達與停留以導遊通知為準。",
+          "timeLabel": "預估16:15（時間僅供參考）",
           "map": {
             "keyword": "サンエー 浦添西海岸 PARCO CITY",
             "city": "沖繩"
@@ -211,7 +214,7 @@
           "imageHeight": 960
         }
       ],
-      "tips": "早餐、午餐自理；晚餐包含。日本比台灣快 1 小時，集合與台中起飛時間已明確標示台灣時間。行程為手冊參考，依導遊、天候與交通調整。",
+      "tips": "早餐、午餐自理；晚餐包含。日本比台灣快 1 小時，集合與台中起飛時間已明確標示台灣時間。行程為手冊參考，依導遊、天候與交通調整。預估時刻為日本時間，時間僅供參考，不是手冊原訂時刻或即時路況；實際依導遊通知或自由活動安排調整。",
       "transport": "依旅行社安排移動；各段車程及未列出的集合時刻請以導遊現場通知為準。"
     },
     {
@@ -243,11 +246,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "10:15",
+          "timeEstimated": true,
           "name": "許田道之驛",
           "image": "images/okinawa/b-kyoda.jpg",
           "intro": "飯店出發後的首站；手冊未列獨立抵達時間。",
-          "timeLabel": "出發後（時間待確認）",
+          "timeLabel": "預估10:15（時間僅供參考）",
           "map": {
             "keyword": "道の駅 許田",
             "city": "沖繩"
@@ -265,11 +269,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "11:15",
+          "timeEstimated": true,
           "name": "古宇利島・心形岩",
           "image": "images/okinawa/b-kouri-heart-rock.jpg",
           "intro": "上午前往古宇利島與心形岩，時間以現場安排為準。",
-          "timeLabel": "上午（時間待確認）",
+          "timeLabel": "預估11:15（時間僅供參考）",
           "map": {
             "keyword": "古宇利島 ハートロック",
             "city": "沖繩"
@@ -287,11 +292,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "12:00",
+          "timeEstimated": true,
           "name": "古宇利島蝦蝦飯專門店",
           "image": "images/okinawa/b-garlic-shrimp-representative.jpg",
           "intro": "手冊列為停留點；不是本日包含的午餐，午餐安排為海洋博公園 INO 自助餐。",
-          "timeLabel": "上午（時間待確認）",
+          "timeLabel": "預估12:00（時間僅供參考）",
           "map": {
             "keyword": "古宇利島 蝦蝦飯",
             "city": "沖繩"
@@ -330,11 +336,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "14:00",
+          "timeEstimated": true,
           "name": "美麗海水族館",
           "image": "images/okinawa/b-churaumi-whale-shark.jpg",
           "intro": "午後參觀美麗海水族館，門票已安排；入館與集合時間由導遊確認。",
-          "timeLabel": "午後（時間待確認）",
+          "timeLabel": "預估14:00（時間僅供參考）",
           "map": {
             "keyword": "沖縄美ら海水族館",
             "city": "沖繩"
@@ -393,7 +400,7 @@
           "imageHeight": 960
         }
       ],
-      "tips": "早餐為飯店早餐，午餐為 INO 自助餐，晚餐為 EBISU 阿古豬涮涮鍋放題。水族館門票已安排；行程依當地確認、天候與交通調整。",
+      "tips": "早餐為飯店早餐，午餐為 INO 自助餐，晚餐為 EBISU 阿古豬涮涮鍋放題。水族館門票已安排；行程依當地確認、天候與交通調整。預估時刻為日本時間，時間僅供參考，不是手冊原訂時刻或即時路況；實際依導遊通知或自由活動安排調整。",
       "transport": "跟隨旅行社安排；未列出的車程、到達及集合時間由導遊確認。"
     },
     {
@@ -446,11 +453,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "10:00",
+          "timeEstimated": true,
           "name": "永旺夢樂城沖繩來客夢",
           "image": "images/okinawa/c-aeon-rycom.jpg",
           "intro": "上午接續前往來客夢，實際停留時間以導遊通知為準。",
-          "timeLabel": "上午（時間待確認）",
+          "timeLabel": "預估10:00（時間僅供參考）",
           "map": {
             "keyword": "イオンモール沖縄ライカム",
             "city": "沖繩"
@@ -468,11 +476,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "12:15",
+          "timeEstimated": true,
           "name": "美國村・琉球工房",
           "image": "images/okinawa/c-american-village.jpg",
           "intro": "接續前往美國村與琉球工房，午餐自理。未參加浮潛者留在美國村。",
-          "timeLabel": "之後（時間待確認）",
+          "timeLabel": "預估12:15（時間僅供參考）",
           "map": {
             "keyword": "美浜アメリカンビレッジ 琉球工房",
             "city": "沖繩"
@@ -533,11 +542,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "17:00",
+          "timeEstimated": true,
           "name": "返回美國村接未參加者",
           "image": "images/okinawa/c-american-village.jpg",
           "intro": "浮潛之後返回美國村，接回未參加浮潛的同行者；集合時間請依現場通知。",
-          "timeLabel": "浮潛後（時間待確認）",
+          "timeLabel": "預估17:00（時間僅供參考）",
           "map": {
             "keyword": "美浜アメリカンビレッジ",
             "city": "沖繩"
@@ -597,11 +607,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "20:30",
+          "timeEstimated": true,
           "name": "餐後自行返回飯店",
           "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "遊覽車服務於晚餐後結束；請自行安排回飯店交通，並確認同行者都已安全返回。",
-          "timeLabel": "餐後（時間自行安排）",
+          "timeLabel": "預估20:30（時間僅供參考）",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
@@ -618,7 +629,7 @@
           "imageHeight": 960
         }
       ],
-      "tips": "早餐為飯店早餐；午餐自理；晚餐為五苑烤肉放題。浮潛有天候限制，未參加者留在美國村；參加者人數不等於全團人數。",
+      "tips": "早餐為飯店早餐；午餐自理；晚餐為五苑烤肉放題。浮潛有天候限制，未參加者留在美國村；參加者人數不等於全團人數。預估時刻為日本時間，時間僅供參考，不是手冊原訂時刻或即時路況；實際依導遊通知或自由活動安排調整。",
       "transport": "白天依旅行社安排。晚餐後遊覽車結束，自行返回飯店；不推定車程或費用。"
     },
     {
@@ -629,11 +640,12 @@
       "items": [
         {
           "type": "spot",
-          "time": null,
+          "time": "08:00",
+          "timeEstimated": true,
           "name": "飯店早餐・自由活動",
           "image": "images/okinawa/a-daiwa-naha-omoromachi.jpg",
           "intro": "本日全日自由活動，無團體旅遊車。飯店早餐包含；午餐與晚餐自理。",
-          "timeLabel": "全日（自行安排）",
+          "timeLabel": "預估08:00（時間僅供參考）",
           "map": {
             "keyword": "Daiwa Roynet Hotel Naha Omoromachi",
             "city": "沖繩"
@@ -651,11 +663,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "10:00",
+          "timeEstimated": true,
           "name": "建議選項・國際通與市場本通",
           "image": "images/okinawa/d-kokusai-street.jpg",
-          "intro": "僅為手冊建議，不是已確認的團體景點或必走順序。交通、停留與用餐自行安排。",
-          "timeLabel": "自選建議（非固定行程）",
+          "intro": "僅為手冊自選建議，不是已確認的團體景點或必走順序。預估時段僅供規劃，交通、停留與用餐自行安排。",
+          "timeLabel": "預估10:00（時間僅供參考）",
           "map": {
             "keyword": "国際通り 市場本通り 那覇",
             "city": "沖繩"
@@ -673,11 +686,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "13:30",
+          "timeEstimated": true,
           "name": "建議選項・新都心與 DFS",
           "image": "images/okinawa/d-dfs-okinawa.jpg",
-          "intro": "僅為自由活動建議；可依興趣選擇，不代表安排參訪或購物時段。",
-          "timeLabel": "自選建議（非固定行程）",
+          "intro": "僅為自由活動建議，非固定行程；可依興趣選擇，預估時段不代表已安排參訪或購物。",
+          "timeLabel": "預估13:30（時間僅供參考）",
           "map": {
             "keyword": "DFS 沖縄 那覇 新都心",
             "city": "沖繩"
@@ -695,11 +709,12 @@
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "15:30",
+          "timeEstimated": true,
           "name": "建議選項・ASHIBINAA Outlet",
           "image": "images/okinawa/d-ashibinaa-outlet.jpg",
-          "intro": "位於豐見城，屬自選建議；交通與時間自行安排。",
-          "timeLabel": "自選建議（非固定行程）",
+          "intro": "位於豐見城，屬自選備選，可替代市區下午活動；不必全走，並非 DFS 後必走行程。預估時段僅供規劃，交通與時間自行安排。",
+          "timeLabel": "預估15:30（時間僅供參考）",
           "map": {
             "keyword": "沖縄アウトレットモール あしびなー 豊見城",
             "city": "沖繩"
@@ -716,7 +731,7 @@
           "imageHeight": 768
         }
       ],
-      "tips": "無團體旅遊車；飯店早餐包含，午餐與晚餐自理。以上僅為建議，非固定路線。攜帶飯店卡、手機與日圓，結伴並以單軌電車或計程車安全返店。",
+      "tips": "無團體旅遊車；飯店早餐包含，午餐與晚餐自理。以上僅為建議，非固定路線。攜帶飯店卡、手機與日圓，結伴並以單軌電車或計程車安全返店。預估時刻為日本時間，時間僅供參考，不是手冊原訂時刻或即時路況；實際依導遊通知或自由活動安排調整。",
       "transport": "自行安排單軌電車、計程車等交通；請先確認目的地與回程方式，票價及車資以現場為準。"
     },
     {

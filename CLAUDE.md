@@ -32,8 +32,8 @@
 - `coords`：保持 `{}`；地圖使用 Google Maps HTTPS `api=1` 關鍵字搜尋，不加未驗證座標、分店或地址。
 - `days[]`：`day`、ISO `date`、繁體中文 `weekday`、`title`、`items`、`tips`、`transport`。
 - `spot`：`time` 為日本時間 `HH:mm` 或 `null`；`timeLabel` 為顯示文字；`name`、`image`、`intro` 與選填 `map: {keyword, city}`。
-- 未指定精確時刻必須 `time: null`，例如 `timeLabel: "午後（時間待確認）"`；保留原始順序，不捏造車程或停留時間。
-- Day 4 全部 `time: null`，不應錯誤顯示定時「現在／即將」。
+- 使用者授權估算原本未定時的活動：新增時間必須 `timeEstimated: true` 並在 `timeLabel` 寫明「預估／時間僅供參考」，不得改動手冊原有的集合與航班時刻；非授權的新資料仍可保持 `time: null`。
+- Day 4 時段僅是自由活動參考，所有選項仍可取捨，Outlet 不代表一定要與市區路線全部走完。
 - 台灣集合、起飛、返台抵達的 `time` 存日本等值，`timeLabel` 清楚標台灣原時刻：07:00 → 08:00、10:00 → 11:00、14:10 → 15:10。
 - Day 3 `16:30` 為浮潛預計結束，必須保留「預計」與天候／教練限制。
 - `image: null` 或圖片載入失敗使用抽象海岸紋理，不冒充實景；新增圖片必須確認適合目的地與使用權利。選填 `imageAlt`、`imageCaption`、`imageSourceUrl`、`imageCredit`、`imageLicense`；代表性照片在 caption 明確寫「示意」，來源只接受有效且不帶帳密的 HTTPS 網址。
@@ -43,7 +43,8 @@
 ## 程式責任
 
 - 時間工具：讀取旅程時區，提供與裝置時區無關的當前日本時間、`?now=` 日本當地覆寫、旅程前／中／後解析；未定時項目不當作精確時間安排。
-- 地圖工具：Google Maps HTTPS 搜尋連結；不需要原生 App scheme 或未安裝彈窗。
+- 地圖工具：`maps.js` 產生 Google Maps HTTPS 備援網址；`maps-launch.js` 在手機的直接點擊中優先喚起 App，並提供網頁 fallback。保留桌面與修飾鍵點擊行為；無實機時不得宣稱已驗證 OS 喚起。
+- 卡片不展開照片作者、來源與長備註，必要授權集中於頁尾 `photo-credits.html`；示意／周邊標示與完整 alt 保留。
 - `js/app.js`：載入資料、分頁、卡片／交通渲染、`timeLabel`、可缺省人數、資訊頁、翻牌時鐘與版本更新。
 - 未定時與預計標籤需可在手機上換行；禁止用虛構時間來修排版或高亮。
 
@@ -56,7 +57,7 @@ for file in js/*.js; do node --check "$file"; done
 node --test tests/*.test.js
 ```
 
-覆寫範例：`http://localhost:8000/?now=2026-10-06T13:00`。測試使用 Node 內建 `assert`／`vm`，無需 npm。驗證五個日期、UTC+9 跨午夜、台灣／日本航班換算、旅程前中後及 Day 4 無定時高亮。另檢查 390px 五天與資訊分頁、無水平溢出或 console 例外、全部地圖為 Google HTTPS 搜尋、無未知人數顯示及無敏感內容。
+覆寫範例：`http://localhost:8000/?now=2026-10-06T13:00`。測試使用 Node 內建 `assert`／`vm`，無需 npm。驗證五個日期、UTC+9 跨午夜、台灣／日本航班換算、旅程前中後，以及預估與自由日自選標籤。另檢查 390px 五天與資訊分頁、無水平溢出或 console 例外、全部地圖為 Google HTTPS 搜尋、無未知人數顯示及無敏感內容。
 
 ## 部署與變更範圍
 

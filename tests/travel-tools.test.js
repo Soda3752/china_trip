@@ -17,6 +17,17 @@ test('public storage API persists only checkbox IDs and survives denied storage'
  assert.doesNotThrow(()=>tool.clearChecks({removeItem(){throw Error('denied');}}));
 });
 
+test('hotel navigation targets its full address in directions rather than booking/search',()=>{
+ const guide=JSON.parse(fs.readFileSync(path.join(root,'data/travel-guide.json'),'utf8'));
+ const tool=api(); assert.equal(typeof tool.hotelNavigationUrl,'function');
+ const url=new URL(tool.hotelNavigationUrl(guide.hotel));
+ assert.equal(url.pathname,'/maps/dir/');assert.equal(url.searchParams.get('api'),'1');
+ assert.equal(url.searchParams.get('destination'),guide.hotel.name+' '+guide.hotel.address);
+ assert.equal(url.searchParams.get('travelmode'),'driving');assert.equal(url.searchParams.has('query'),false);
+ const launch=require('../js/maps-launch.js').buildLaunch(url.href,{userAgent:'iPhone'});
+ assert.equal(new URL(launch.appUrl).searchParams.get('daddr'),guide.hotel.name+' '+guide.hotel.address);
+ assert.equal(new URL(launch.appUrl).searchParams.get('q'),null);
+});
 let chromium,browserPath;
 if(process.env.PLAYWRIGHT_BROWSERS_PATH){try{({chromium}=require('/opt/data/home/.npm/_npx/e41f203b7505f1fb/node_modules/playwright'));const full=chromium.executablePath();const shell=full.replace('/chromium-','/chromium_headless_shell-').replace('/chrome-linux64/chrome','/chrome-headless-shell-linux64/chrome-headless-shell');browserPath=[process.env.CHROMIUM_PATH,full,shell].find(p=>p&&fs.existsSync(p));if(!browserPath)chromium=null;}catch(_){}}
 test('standalone public fixture integrates hotel, five days, info and reload/cross-tab packing',{skip:!chromium?'Portable Playwright requires available package and PLAYWRIGHT_BROWSERS_PATH':false},async()=>{

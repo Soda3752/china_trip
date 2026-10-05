@@ -27,13 +27,44 @@ test('Okinawa itinerary excludes private details and Shanghai content', () => {
   }
 });
 
-test('untimed free day has no invented fixed appointments', () => {
-  assert.ok(data.days[3].items.every(item => !item.time));
-  assert.match(JSON.stringify(data.days[3]), /無.*(?:車|用車)|未安排.*車/);
+test('all 15 previously untimed cards have explicitly labelled Japanese planning estimates', () => {
+  const expected = [
+    ['14:00', '15:00', '16:15'],
+    ['10:15', '11:15', '12:00', '14:00'],
+    ['10:00', '12:15', '17:00', '20:30'],
+    ['08:00', '10:00', '13:30', '15:30'],
+    []
+  ];
+  const estimated = data.days.flatMap(day => day.items.filter(item => item.timeEstimated === true));
+  assert.equal(estimated.length, 15);
+  assert.deepEqual(data.days.map(day => day.items.filter(item => item.timeEstimated === true).map(item => item.time)), expected);
+  for (const item of estimated) {
+    assert.equal(item.timeLabel, `預估${item.time}（時間僅供參考）`);
+  }
+  for (const day of data.days) {
+    assert.ok(day.items.every(item => item.time));
+    const times = day.items.map(item => item.time);
+    assert.deepEqual(times, [...times].sort(), `Day ${day.day} stays chronological`);
+  }
+});
+
+test('free-day estimates remain optional suggestions, not fixed appointments', () => {
+  const freeDay = data.days[3];
+  assert.ok(freeDay.items.every(item => item.timeEstimated === true && /時間僅供參考/.test(item.timeLabel)));
+  assert.match(JSON.stringify(freeDay), /無.*(?:車|用車)|未安排.*車/);
+  assert.match(freeDay.tips, /非固定路線/);
+  assert.match(freeDay.tips, /時間僅供參考/);
+  for (const item of freeDay.items.slice(1)) {
+    assert.match(item.name, /建議選項/);
+    assert.match(item.intro, /自選|可依興趣|可自行/);
+    assert.match(item.intro, /非固定|不是.*必走|備選/);
+  }
+  assert.match(freeDay.items.at(-1).intro, /備選.*(?:替代|取代).*市區下午/);
+  assert.match(freeDay.items.at(-1).intro, /不必全走/);
 });
 
 test('known appointments preserve source times on the Japanese clock', () => {
-  const times = data.days.map(day => day.items.filter(item => item.time).map(item => item.time));
+  const times = data.days.map(day => day.items.filter(item => item.time && !item.timeEstimated).map(item => item.time));
   assert.deepEqual(times, [
     ['08:00','11:00','12:40','13:30','18:30','20:00'],
     ['09:00','13:00','18:00','19:30'],
@@ -44,6 +75,26 @@ test('known appointments preserve source times on the Japanese clock', () => {
   assert.match(data.days[0].items[0].timeLabel, /台灣 07:00/);
   assert.match(data.days[0].items[1].timeLabel, /台灣 10:00/);
   assert.match(data.days[4].items.at(-1).timeLabel, /台灣 14:10/);
+});
+
+test('daily guide distinguishes planning estimates from confirmed source appointments', () => {
+  const guide = JSON.parse(fs.readFileSync(path.join(root, 'data/travel-guide.json'), 'utf8'));
+  for (const day of guide.days.slice(0, 4)) {
+    assert.match(day.reminders.join(' '), /預估/);
+    assert.match(day.reminders.join(' '), /日本時間/);
+    assert.match(day.reminders.join(' '), /時間僅供參考/);
+  }
+  const day3 = guide.days[2].reminders.join(' ');
+  assert.match(day3, /17:00.*預估|預估.*17:00/);
+  assert.match(day3, /20:30.*預估|預估.*20:30/);
+  assert.match(day3, /集合.*(?:領隊|導遊).*確認/);
+  assert.match(day3, /自行.*回飯店/);
+  const day4 = guide.days[3].reminders.join(' ');
+  assert.match(day4, /無團體旅遊車/);
+  assert.match(day4, /不是固定行程/);
+  assert.match(day4, /10:00.*國際通.*13:30.*DFS/);
+  assert.match(day4, /15:30.*(?:備選|替代)/);
+  assert.match(day4, /不必全走/);
 });
 
 test('each day preserves the handbook principal stops', () => {

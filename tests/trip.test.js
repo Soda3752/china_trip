@@ -46,7 +46,8 @@ test('spot cards display textual and Taiwan time labels with safe Google links',
     vm.runInContext(fs.readFileSync(path.join(root, 'js', file), 'utf8'), ctx);
   const html = ctx.spotRow({ name: '散步', time: null, timeLabel: '午後・依現場通知', map: { keyword: 'A&B "市場"' } }, '');
   assert.match(html, /午後・依現場通知/);
-  assert.match(html, /https:\/\/www.google.com\/maps\/search\//);
+  assert.match(html, /https:\/\/www.google.com\/maps\/dir\//);
+  assert.doesNotMatch(html, /maps\/search\//);
   assert.ok(!html.includes('data-coord'));
   assert.match(ctx.spotRow({ name: '起飛', time: '11:00', timeLabel: '台灣 10:00（日本 11:00）' }, ''), /台灣 10:00（日本 11:00）/);
 });

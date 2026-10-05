@@ -55,7 +55,12 @@ test('Okinawa init and all six tab handlers render without errors or old destina
       assert.match(html, /沖繩/);
       assert.match(html, /京王/);
     }
-    if (i === 3) assert.ok(!/state-current|state-next|now-badge|next-badge/.test(html));
+    if (i === 3) {
+      assert.match(html, /預估/);
+      assert.match(html, /時間僅供參考/);
+      assert.match(html, /自由日景點可自行取捨/);
+      assert.doesNotMatch(html, />現在<|已確認行程/);
+    }
   }
   assert.equal(nodes['deco-loader'].hidden, false); // hide uses existing CSS class contract
 });

@@ -159,9 +159,8 @@ body.head-collapsed .tabbar { transform: translateY(calc(-1 * var(--topbar-h)));
 .card-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .card-title { flex: 1 1 160px; min-width: 0; margin: 0; color: var(--ink); font-size: 1.05rem; font-weight: 700; line-height: 1.6; }
 .card-intro { margin: 12px 0 0; color: var(--muted); font-size: .87rem; line-height: 1.85; }
-.image-attribution { margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); }
-.image-caption, .image-credit { margin: 0; font-size: .72rem; line-height: 1.7; }
-.image-source { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; max-width: 100%; padding: 8px 0; color: var(--ocean-deep); font-size: .7rem; line-height: 1.7; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.image-kind { position: absolute; right: 12px; bottom: 12px; padding: 4px 8px; border-radius: 8px; background: var(--surface); color: var(--ink); font-size: .68rem; line-height: 1.6; }
+.footer a { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px; color: var(--ocean-deep); text-underline-offset: 3px; }
 .card-media:has(.media-img) .spot-time { margin-bottom: 14px; }
 .spot-stay { display: inline-flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 0; color: var(--muted); font-size: .76rem; }
 .spot-stay b { color: var(--ocean-deep); }

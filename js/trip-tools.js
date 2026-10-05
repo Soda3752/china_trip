@@ -7,7 +7,8 @@
  function writeChecks(store,value){try{store.setItem(KEY,JSON.stringify(clean(value)));return true;}catch(_){return false;}}
  function clearChecks(store){try{store.removeItem(KEY);return true;}catch(_){return false;}}
  function offlineMessage(message,version){if(message.version!==version)return '新版離線資料待更新，關閉本站分頁後重新開啟。外部服務仍需網路。';return message.ready===true?'本站離線內容已完整儲存；外部服務仍需網路。':'本站離線內容尚未完整儲存；請保持網路連線。';}
- root.TripTools={KEY,readChecks,writeChecks,clearChecks,offlineMessage};
+ function hotelNavigationUrl(hotel){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(hotel.name+' '+hotel.address)+'&travelmode=driving';}
+ root.TripTools={KEY,readChecks,writeChecks,clearChecks,offlineMessage,hotelNavigationUrl};
 })(typeof globalThis!=='undefined'?globalThis:this);
 
 (function(){
@@ -27,7 +28,7 @@
   if(!guide||!state||!state.data)return;
   if(!document.getElementById('trip-hotel')){
    const h=guide.hotel,box=document.createElement('details');box.id='trip-hotel';box.className='trip-tools trip-hotel';
-   box.innerHTML=`<summary>返飯店・電話・地址</summary><p>${escape(h.name)}</p><p>${escape(h.address)}</p><div class="trip-actions">${link('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(h.name+' '+h.address),'開啟飯店地圖')}<a href="tel:+81988624555">${escape(h.phone)}</a><button type="button" data-copy-address>複製地址</button></div><p data-copy-status role="status"></p><p lang="ja">${escape(h.taxi)}</p><p class="trip-source">${link(h.source,'飯店官方地址／電話來源')} · ${link(h.homepage,'飯店官網')}</p><p data-offline-status role="status">${escape(offline)}</p><p>離線只提供已儲存的本站內容；外部地圖導航、天氣、颱風、航班動態及入境申報需網路。電話需電信訊號。</p>`;
+   box.innerHTML=`<summary>返飯店・電話・地址</summary><p>${escape(h.name)}</p><p>${escape(h.address)}</p><div class="trip-actions">${link(api.hotelNavigationUrl(h),'導航回飯店')}<a href="tel:+81988624555">${escape(h.phone)}</a><button type="button" data-copy-address>複製地址</button></div><p data-copy-status role="status"></p><p lang="ja">${escape(h.taxi)}</p><p class="trip-source">${link(h.source,'飯店官方地址／電話來源')} · ${link(h.homepage,'飯店官網')}</p><p data-offline-status role="status">${escape(offline)}</p><p>離線只提供已儲存的本站內容；外部地圖導航、天氣、颱風、航班動態及入境申報需網路。電話需電信訊號。</p>`;
    box.addEventListener('toggle',()=>{if(typeof syncTopbarHeight==='function')syncTopbarHeight();});
    const header=document.querySelector('.topbar');if(header){header.append(box);if(typeof syncTopbarHeight==='function')syncTopbarHeight();}else content.before(box);
   }

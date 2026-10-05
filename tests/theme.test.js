@@ -5,7 +5,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.join(__dirname, '..');
 function app() {
-  const ctx = vm.createContext({ document: { addEventListener() {} } });
+  const ctx = vm.createContext({ document: { addEventListener() {} }, URL, URLSearchParams });
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/maps.js'), 'utf8'), ctx);
   vm.runInContext(fs.readFileSync(path.join(root, 'js/app.js'), 'utf8'), ctx);
   return ctx;
 }
@@ -50,23 +51,18 @@ test('island shell uses two font families and hides loader without JavaScript', 
   assert.match(css, /min-height:\s*44px/);
   assert.match(css, /white-space:\s*normal/);
 });
-test('photo cards render escaped caption and accessible HTTPS attribution', () => {
+test('photo cards omit source and photo notes while retaining accessible alternatives and brief representative label', () => {
   const ctx = app();
-  ctx.URL = URL;
   ctx.googleSearchUrl = () => '';
-  const item = { name: '海邊', image: 'images/coast.jpg', imageAlt: '海岸 <示意>',
-    imageCaption: '海岸示意 · <不是確切景點>', imageCredit: 'A & B', imageLicense: 'CC BY-SA 4.0',
-    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Coast.jpg?a=1&b=2' };
+  const item = { name: '海邊', image: 'images/coast.jpg', imageAlt: '海岸 <示意>', imageRepresentative: true,
+    imageCaption: 'photo-caption-to-hide', imageCredit: 'author-to-hide', imageLicense: 'CC BY-SA 4.0',
+    imageChanges: 'processing-to-hide', imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Coast.jpg', intro: '集合請依領隊通知。' };
   const html = ctx.spotRow(item, '');
   assert.match(html, /alt="海岸 &lt;示意&gt;"/);
-  assert.match(html, /class="image-caption"/);
-  assert.match(html, /海岸示意 · &lt;不是確切景點&gt;/);
-  assert.match(html, /class="image-source"[^>]*href="https:\/\/commons.wikimedia.org/);
-  assert.match(html, /A &amp; B/);
-  assert.match(html, /CC BY-SA 4.0/);
-  for (const imageSourceUrl of ['javascript:alert(1)', 'http://example.test/', 'https://', 'data:text/html,hi']) {
-    assert.doesNotMatch(ctx.spotRow({ ...item, imageSourceUrl }, ''), /class="image-source"[^>]*href=/);
-  }
+  assert.doesNotMatch(html, /image-attribution|image-caption|image-source|photo-caption-to-hide|author-to-hide|processing-to-hide|CC BY-SA|圖片處理|照片來源/);
+  assert.match(html, /class="image-kind">示意／周邊<\/span>/);
+  assert.match(html, /集合請依領隊通知。/);
+  assert.doesNotMatch(ctx.spotRow({...item, imageRepresentative:false}, ''), /class="image-kind"/);
 });
 test('failed photographs become coastal trip notes without an inline script handler', () => {
   const handlers = {};

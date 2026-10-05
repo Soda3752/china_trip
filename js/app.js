@@ -243,7 +243,7 @@ function renderDay(dayIndex) {
       <div class="day-kicker">Day ${day.day} · ${day.date.slice(5).replace('-', '/')}（${day.weekday}）</div>
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
-    <p class="note">日本時間 · 高亮僅為手冊時刻參考，非實際位置；未定時活動依現場通知，行程依導遊與天候調整。</p>
+    <p class="note">日本時間 · 時間僅供參考；「預估」為概略安排，實際依領隊、交通與天候調整。高亮只代表參考時段，不是實際位置；自由日景點可自行取捨。</p>
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
   `;
@@ -253,29 +253,20 @@ function renderDay(dayIndex) {
 function spotRow(it, state) {
   const label = it.timeLabel || (it.time ? `日本 ${fmt12(it.time)}` : '時間依現場通知');
   const time = `<span class="spot-time">${esc(label)}</span>`;
-  const mapUrl = googleSearchUrl(it.map);
+  const mapUrl = googleDirectionsUrl(it.map, 'taxi');
   const nav = mapUrl
     ? `<a class="btn-nav" href="${esc(mapUrl)}" target="_blank" rel="noopener">導航 ↗</a>`
     : '';
   const badge = state === 'state-current'
     ? '<span class="now-badge">時刻參考</span>'
     : state === 'state-next' ? '<span class="next-badge">下個定時</span>' : '';
-  let sourceUrl = '';
-  try {
-    const url = new URL(it.imageSourceUrl);
-    if (url.protocol === 'https:' && !url.username && !url.password) sourceUrl = url.href;
-  } catch (_) { /* Invalid or absent attribution URL: render text only. */ }
-  const credit = [it.imageCredit, it.imageLicense].filter(Boolean).join(' · ');
-  const attribution = it.image && (it.imageCaption || credit || sourceUrl)
-    ? `<div class="image-attribution">${it.imageCaption ? `<p class="image-caption">${esc(it.imageCaption)}</p>` : ''}
-        ${sourceUrl ? `<a class="image-source" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer">照片來源${credit ? ` · ${esc(credit)}` : ''} ↗</a>` : credit ? `<p class="image-credit">${esc(credit)}</p>` : ''}
-        ${it.imageChanges ? `<details class="image-credit"><summary>圖片處理與授權說明</summary><p>${esc(it.imageChanges)}</p><p>來源頁提供完整授權條款；本地圖片衍生檔沿用原圖授權。</p></details>` : ''}</div>`
-    : '';
+  const imageKind = it.image && it.imageRepresentative
+    ? '<span class="image-kind">示意／周邊</span>' : '';
   return `
     <li class="tl-item tl-spot ${state}">
       <div class="tl-rail" aria-hidden="true"><span class="tl-node"></span></div>
       <article class="card">
-        <div class="card-media">${mediaHTML(it)}${time}</div>
+        <div class="card-media">${mediaHTML(it)}${time}${imageKind}</div>
         <div class="card-body">
           <div class="card-head">
             <h3 class="card-title">${esc(it.name)} ${badge}</h3>
@@ -283,7 +274,6 @@ function spotRow(it, state) {
           </div>
           ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
           ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}
-          ${attribution}
         </div>
       </article>
     </li>`;
