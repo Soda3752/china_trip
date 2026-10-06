@@ -1,0 +1,18 @@
+/* A real localhost Service Worker run; in-memory route fixture never edits shared data. */
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');const path=require('node:path');const http=require('node:http');
+const root=path.join(__dirname,'..');
+const pw=process.env.PLAYWRIGHT_MODULE||'/opt/data/home/.npm/_npx/e41f203b7505f1fb/node_modules/playwright';
+const available=fs.existsSync(pw)&&!!process.env.PLAYWRIGHT_BROWSERS_PATH;
+test('real worker precaches route assets; offline reload still supports variants and safe grouped markers',{skip:!available},async()=>{
+ const {chromium}=require(pw);const route={disclaimer:'非精確比例；連線僅代表行程順序，車程僅供參考，不含即時路況與停車時間。',places:{hotel:{label:'飯店',x:110,y:420,insetX:150,insetY:150}},days:[{day:2,variants:[{id:'main',label:'<img src=x onerror=alert(1)>',note:'正常行程',stops:[{place:'hotel',itemIndex:0},{place:'hotel',itemIndex:7}],legs:[{from:0,to:1,minutes:[10,20],note:'OSRM 靜態道路估算',source:'https://www.openstreetmap.org/copyright'},{from:0,to:1,minutes:null,note:'待確認',source:'javascript:alert(1)'},{from:0,to:1,minutes:null,note:'待確認',source:'https://user:password@example.com/'}]},{id:'rest',label:'另一選項',stops:[{place:'hotel',itemIndex:7}],legs:[]}]}]};
+ const types={'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.jpg':'image/jpeg'};
+ const server=http.createServer((req,res)=>{const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(name==='/data/route-map.json'){res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify(route));return;}const file=path.resolve(root,'.'+(name==='/'?'/index.html':name));if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}fs.readFile(file,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});res.end(error?'Not found':data);});});
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const browser=await chromium.launch();try{
+ const context=await browser.newContext({viewport:{width:320,height:844},reducedMotion:'reduce'});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(`http://127.0.0.1:${server.address().port}/?now=2026-10-06T13:00`);
+ await page.waitForFunction(()=>navigator.serviceWorker.controller);await page.waitForFunction(()=>document.querySelector('[data-offline-status]')?.textContent.includes('已完整儲存'));
+ for(const asset of ['js/route-map.js','css/route-map.css','data/route-map.json'])assert.equal(await page.evaluate(async asset=>!!await caches.match(new URL(asset,location.href).href),asset),true);
+ await context.setOffline(true);await page.reload();const map=page.locator('[data-route-map]');await map.waitFor();await map.locator(':scope > summary').click();assert.equal(await map.locator('.route-marker').count(),1);assert.equal(await map.locator('svg').count(),1);assert.equal(await map.locator('.route-marker').innerText(),'1+');assert.equal(await map.locator('.route-stop').count(),2);assert.match(await map.locator('.route-marker').getAttribute('aria-label'),/1 飯店、2 飯店.*第一站/);assert.equal(await map.locator('img').count(),0);assert.equal(await map.locator('[data-route-sources] a').count(),1);assert.match(await map.locator('h3').innerText(),/<img/);await map.locator('[data-route-variant]').nth(1).click();assert.equal(await map.locator('.route-stop').count(),1);assert.deepEqual(errors,[]);await context.close();
+ }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
+});

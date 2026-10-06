@@ -48,6 +48,17 @@
 - `js/app.js`：載入資料、分頁、卡片／交通渲染、`timeLabel`、可缺省人數、資訊頁、翻牌時鐘與版本更新。
 - 未定時與預計標籤需可在手機上換行；禁止用虛構時間來修排版或高亮。
 
+## 每日路線示意契約
+
+- `js/route-map.js` 為獨立容錯 add-on，透過內容 MutationObserver 接上既有 TripTools；不改原 APP、時刻、影像或導航。`details[data-route-map]` 在 `[data-trip-panel]` 後、`.timeline` 前且預設收合；資訊頁不顯示。
+- 只讀本地 `data/route-map.json`；schema：`disclaimer`、`places[id]:{label,x,y,insetX?,insetY?,source?}`、`days:[{day,variants:[{id,label,note,stops:[{place,itemIndex,label?}],legs:[{from,to,minutes:[min,max]|null,note,source?}]}]}]`。圖面 x/y 不是地理座標。不要猜未知店家位置／車程。
+- `data-route-stop` 與 `data-item-index` 為當日原始 items 索引，目標 `.timeline > [data-route-item]`；44px 按鈕支援鍵盤與觸控。相鄰／重複點合併編號，完整每站跳轉保留在清單；合併點標記說明全部編號／名稱且跳第一站。
+- `data-route-variant` 控制 D3 分流與 D4 市區／獨立 Outlet；`data-route-total` 僅加總目前選項已知路段，未知段數明示。排除台灣／飛行路段，不把所有備選點變成必走路線。
+- SVG 為示意、北方在上、東北／西南本島輪廓與那霸放大圖，虛線不代表道路。文字 HTML escape；來源只允許無帳密 HTTPS，另附 OpenStreetMap contributors 授權連結。不在瀏覽器呼叫外部地理編碼或道路 API。
+- 主要畫面固定使用簡短免責說明；完整資料 disclaimer、各路段技術 note 與 HTTPS 來源放在預設收合「車程來源與計算說明」。未知分店／待確認路段提醒仍直接顯示。全為 inset 點時省略空本島圖，重複點顯示第一編號加「+」，完整編號／名稱保留 aria-label 與清單。
+- 缺資料時 summary 顯示「暫時無法載入」，不使原行程消失。離線清單必含 route-map JS／CSS／JSON。
+- 嚴格 TDD：每段新行為先驗 RED 再 GREEN。`tests/route-map.test.js` 驗模型／分組／合計；`tests/route-map.browser.cjs` 驗五日、320／390px、選項、鍵盤精確跳轉及失敗；`tests/route-map-offline.test.js` 用真實 Service Worker、記憶體 fixture 驗離線重開、安全文字／來源與重複點。fixture 驗證不取代正式 JSON 的內容來源驗證。
+
 ## 開發與驗證
 
 ```bash

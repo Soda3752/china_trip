@@ -1,0 +1,1344 @@
+{
+  "disclaimer": "沖繩路線示意圖：北方朝上，位置與線段均非精確地圖／導航。車程為官方交通參考或一次性查詢的 OSRM 靜態道路估算，非即時路況、非遊覽車保證時間；不含候車、停車、步行或活動停留，不由行程卡時刻相減。OSRM 模型秒數向上取整分，[相同數值,相同數值] 不表示保證或誤差範圍。分店未指定或未查得可信路段則標示待確認。道路與座標資料 © OpenStreetMap contributors，ODbL：https://www.openstreetmap.org/copyright；示意圖不需金鑰，網站不向路由服務發出即時查詢。",
+  "places": {
+    "hotel": {
+      "label": "那霸歌町大和ROYNET飯店（非 PREMIER）",
+      "x": 106,
+      "y": 440,
+      "insetX": 270,
+      "insetY": 72,
+      "source": "https://www.daiwaroynet.jp/naha-omoromachi/access/",
+      "latitude": 26.2231562,
+      "longitude": 127.6953425,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=Daiwa+Roynet+Hotel+Naha+Omoromachi&format=jsonv2&limit=2",
+      "address": "〒900-0006 沖縄県那覇市おもろまち1-1-12"
+    },
+    "airport": {
+      "label": "那霸機場",
+      "x": 63,
+      "y": 462,
+      "insetX": 40,
+      "insetY": 157
+    },
+    "itoman": {
+      "label": "糸滿魚市場",
+      "x": 83,
+      "y": 501,
+      "insetX": 125,
+      "insetY": 223,
+      "source": "https://www.okinawastory.jp/spot/600006773",
+      "latitude": 26.1381367,
+      "longitude": 127.6613972,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E7%B3%B8%E6%BA%80+%E3%81%8A%E9%AD%9A%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC&format=jsonv2&limit=2"
+    },
+    "senaga": {
+      "label": "瀨長島海風露台",
+      "x": 47,
+      "y": 479,
+      "insetX": 30,
+      "insetY": 193,
+      "source": "https://www.umikajiterrace.com/accessguide",
+      "latitude": 26.1766608,
+      "longitude": 127.6405881,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E7%80%AC%E9%95%B7%E5%B3%B6+%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9&format=jsonv2&limit=2"
+    },
+    "parco": {
+      "label": "PARCO CITY",
+      "x": 116,
+      "y": 403,
+      "insetX": 295,
+      "insetY": 20,
+      "source": "https://www.openstreetmap.org/relation/21111224",
+      "latitude": 26.2625307,
+      "longitude": 127.6986621,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=PARCO+CITY+%E6%B5%A6%E6%B7%BB&format=jsonv2&limit=2"
+    },
+    "fukushuen": {
+      "label": "福州園（晚餐地點周邊）",
+      "x": 83,
+      "y": 445,
+      "insetX": 165,
+      "insetY": 113,
+      "source": "https://www.openstreetmap.org/way/53579264",
+      "latitude": 26.2177077,
+      "longitude": 127.6760296,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E7%A6%8F%E5%B7%9E%E5%9C%92+%E9%82%A3%E8%A6%87&format=jsonv2&limit=2"
+    },
+    "kyoda": {
+      "label": "許田道之驛",
+      "x": 254,
+      "y": 218,
+      "source": "https://www.openstreetmap.org/way/459571092",
+      "latitude": 26.5521328,
+      "longitude": 127.9695154,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E9%81%93%E3%81%AE%E9%A7%85+%E8%A8%B1%E7%94%B0&format=jsonv2&limit=2"
+    },
+    "kouri": {
+      "label": "古宇利島・心形岩／ティーヌ浜",
+      "x": 288,
+      "y": 105,
+      "source": "https://www.okinawastory.jp/news/tourism/4219",
+      "latitude": 26.7131471,
+      "longitude": 128.0142529,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E3%83%86%E3%82%A3%E3%83%BC%E3%83%8C%E6%B5%9C&format=jsonv2&limit=3&countrycodes=jp"
+    },
+    "aquarium": {
+      "label": "海洋博公園 INO・美麗海水族館",
+      "x": 199,
+      "y": 127,
+      "source": "https://churaumi.okinawa/guide/access/",
+      "latitude": 26.6943689,
+      "longitude": 127.878038,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E6%B2%96%E7%B8%84%E7%BE%8E%E3%82%89%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8&format=jsonv2&limit=2"
+    },
+    "daruma": {
+      "label": "西來院達磨寺",
+      "x": 136,
+      "y": 445,
+      "insetX": 355,
+      "insetY": 117,
+      "source": "https://www.openstreetmap.org/node/9089918451",
+      "latitude": 26.21769,
+      "longitude": 127.7225462,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E8%A5%BF%E6%9D%A5%E9%99%A2+%E9%82%A3%E8%A6%87&format=jsonv2&limit=2"
+    },
+    "rycom": {
+      "label": "永旺夢樂城沖繩來客夢",
+      "x": 187,
+      "y": 365,
+      "source": "https://www.openstreetmap.org/way/396524453",
+      "latitude": 26.3142262,
+      "longitude": 127.7959208,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=AEON+Mall+Okinawa+Rycom&format=jsonv2&limit=2"
+    },
+    "american": {
+      "label": "美國村・琉球工房（街區參考點）",
+      "x": 153,
+      "y": 359,
+      "source": "https://www.okinawa-americanvillage.com/access/",
+      "latitude": 26.3165214,
+      "longitude": 127.7573637,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=American+Village+Okinawa&format=jsonv2&limit=3&countrycodes=jp"
+    },
+    "maeda": {
+      "label": "青洞／真榮田岬（集合點待確認）",
+      "x": 166,
+      "y": 285,
+      "source": "https://maedamisaki.jp/",
+      "latitude": 26.4439064,
+      "longitude": 127.7720512,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC&format=jsonv2&limit=2"
+    },
+    "kokusai": {
+      "label": "國際通・市場本通",
+      "x": 99,
+      "y": 452,
+      "insetX": 228,
+      "insetY": 135,
+      "source": "https://www.openstreetmap.org/way/553730571",
+      "latitude": 26.2154871,
+      "longitude": 127.6881958,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=%E5%B8%82%E5%A0%B4%E6%9C%AC%E9%80%9A%E3%82%8A+%E9%82%A3%E8%A6%87&format=jsonv2&limit=2"
+    },
+    "dfs": {
+      "label": "新都心 DFS",
+      "x": 113,
+      "y": 438,
+      "insetX": 297,
+      "insetY": 61,
+      "source": "https://www.openstreetmap.org/relation/20504307",
+      "latitude": 26.2230954,
+      "longitude": 127.6967176,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=DFS+%E9%82%A3%E8%A6%87&format=jsonv2&limit=2"
+    },
+    "outlet": {
+      "label": "ASHIBINAA Outlet",
+      "x": 70,
+      "y": 491,
+      "insetX": 92,
+      "insetY": 209,
+      "source": "https://www.openstreetmap.org/way/537326013",
+      "latitude": 26.1588745,
+      "longitude": 127.6570821,
+      "coordinateSource": "https://nominatim.openstreetmap.org/search?q=Okinawa+Outlet+Mall+Ashibinaa&format=jsonv2&limit=3&countrycodes=jp"
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "variants": [
+        {
+          "id": "main",
+          "label": "抵達・南部與那霸",
+          "note": "僅呈現沖繩在地移動；機場抵達／離開合併，同地活動不重複畫移動路線。",
+          "stops": [
+            {
+              "place": "airport",
+              "itemIndex": 2,
+              "label": "那霸機場（抵達／離開）",
+              "itemIndexes": [
+                2,
+                3
+              ]
+            },
+            {
+              "place": "itoman",
+              "itemIndex": 4
+            },
+            {
+              "place": "senaga",
+              "itemIndex": 5
+            },
+            {
+              "place": "parco",
+              "itemIndex": 6
+            },
+            {
+              "place": "fukushuen",
+              "itemIndex": 7
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 8
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                20,
+                20
+              ],
+              "note": "沖繩觀光官方交通參考：那霸機場至道之驛糸滿（含お魚センター）一般道路約20分；非即時路況，不含入境、領行李或停留。",
+              "source": "https://www.okinawastory.jp/spot/600006773",
+              "evidence": {
+                "method": "official access reference",
+                "quote": "那覇空港から車（一般道）で約20分"
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                11,
+                11
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6613972,26.1381367;127.6405881,26.1766608?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 611.5,
+                "distanceMeters": 6052.1,
+                "inputCoordinates": [
+                  [
+                    127.6613972,
+                    26.1381367
+                  ],
+                  [
+                    127.6405881,
+                    26.1766608
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.661439,
+                    26.137983
+                  ],
+                  [
+                    127.640686,
+                    26.176608
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  17.57110806,
+                  11.42189017
+                ]
+              }
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "minutes": [
+                25,
+                25
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6405881,26.1766608;127.6986621,26.2625307?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1447.7,
+                "distanceMeters": 14606.6,
+                "inputCoordinates": [
+                  [
+                    127.6405881,
+                    26.1766608
+                  ],
+                  [
+                    127.6986621,
+                    26.2625307
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.640686,
+                    26.176608
+                  ],
+                  [
+                    127.699017,
+                    26.262901
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  11.42189017,
+                  54.20101881
+                ]
+              }
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "minutes": [
+                12,
+                12
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 福州園以園區周邊道路為參考，晚餐入口依導遊確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6986621,26.2625307;127.6760296,26.2177077?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 666.2,
+                "distanceMeters": 6440.7,
+                "inputCoordinates": [
+                  [
+                    127.6986621,
+                    26.2625307
+                  ],
+                  [
+                    127.6760296,
+                    26.2177077
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.699017,
+                    26.262901
+                  ],
+                  [
+                    127.675795,
+                    26.217588
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  54.20101881,
+                  26.98502903
+                ]
+              }
+            },
+            {
+              "from": 4,
+              "to": 5,
+              "minutes": [
+                8,
+                8
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 福州園以園區周邊道路為參考，晚餐入口依導遊確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6760296,26.2177077;127.6953425,26.2231562?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 420.9,
+                "distanceMeters": 4140.2,
+                "inputCoordinates": [
+                  [
+                    127.6760296,
+                    26.2177077
+                  ],
+                  [
+                    127.6953425,
+                    26.2231562
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.675795,
+                    26.217588
+                  ],
+                  [
+                    127.695693,
+                    26.223421
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  26.98502903,
+                  45.66384984
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "variants": [
+        {
+          "id": "main",
+          "label": "北部一日遊",
+          "note": "INO 午餐與水族館同在海洋博公園，合併為園區停留；蝦蝦飯仍是獨立停留點，店名／位置待領隊確認，並非替代 INO 午餐。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0
+            },
+            {
+              "place": "kyoda",
+              "itemIndex": 1
+            },
+            {
+              "place": "kouri",
+              "itemIndex": 2
+            },
+            {
+              "place": null,
+              "itemIndex": 3,
+              "label": "古宇利島蝦蝦飯（分店／路段待確認）"
+            },
+            {
+              "place": "aquarium",
+              "itemIndex": 4,
+              "label": "海洋博公園 INO 午餐・美麗海水族館",
+              "itemIndexes": [
+                4,
+                5
+              ]
+            },
+            {
+              "place": null,
+              "itemIndex": 6,
+              "label": "EBISU（分店／路段待確認）"
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 7
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                66,
+                66
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6953425,26.2231562;127.9695154,26.5521328?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 3954.6,
+                "distanceMeters": 62044.5,
+                "inputCoordinates": [
+                  [
+                    127.6953425,
+                    26.2231562
+                  ],
+                  [
+                    127.9695154,
+                    26.5521328
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.695693,
+                    26.223421
+                  ],
+                  [
+                    127.969572,
+                    26.552083
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  45.66384984,
+                  7.933274191
+                ]
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                41,
+                41
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 古宇利以ティーヌ浜周邊為參考，心形岩需另行步行。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.9695154,26.5521328;128.0142529,26.7131471?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 2424.7,
+                "distanceMeters": 25671.1,
+                "inputCoordinates": [
+                  [
+                    127.9695154,
+                    26.5521328
+                  ],
+                  [
+                    128.0142529,
+                    26.7131471
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.969572,
+                    26.552083
+                  ],
+                  [
+                    128.014256,
+                    26.713148
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  7.933274191,
+                  0.3183867089
+                ]
+              }
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            },
+            {
+              "from": 4,
+              "to": 5,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            },
+            {
+              "from": 5,
+              "to": 6,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "variants": [
+        {
+          "id": "snorkeling",
+          "label": "參加浮潛",
+          "note": "參加者7名，不代表全團人數；真榮田岬為青洞周邊參考點，業者集合位置依領隊通知。浮潛開始／結束合併；返回美國村會合後先回飯店、再至五苑。晚餐後自行返店。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0
+            },
+            {
+              "place": "daruma",
+              "itemIndex": 1
+            },
+            {
+              "place": "rycom",
+              "itemIndex": 2
+            },
+            {
+              "place": "american",
+              "itemIndex": 3
+            },
+            {
+              "place": "maeda",
+              "itemIndex": 4,
+              "label": "青洞浮潛（開始／預計結束）",
+              "itemIndexes": [
+                4,
+                5
+              ]
+            },
+            {
+              "place": "american",
+              "itemIndex": 6,
+              "label": "返回美國村接未參加者"
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 7
+            },
+            {
+              "place": null,
+              "itemIndex": 8,
+              "label": "五苑 Goen（分店／路段待確認）"
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 9,
+              "label": "餐後自行返回飯店"
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                8,
+                8
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6953425,26.2231562;127.7225462,26.2176900?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 428.5,
+                "distanceMeters": 4004.7,
+                "inputCoordinates": [
+                  [
+                    127.6953425,
+                    26.2231562
+                  ],
+                  [
+                    127.7225462,
+                    26.21769
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.695693,
+                    26.223421
+                  ],
+                  [
+                    127.722641,
+                    26.217541
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  45.66384984,
+                  19.04280728
+                ]
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                25,
+                25
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7225462,26.2176900;127.7959208,26.3142262?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1449.8,
+                "distanceMeters": 17894.6,
+                "inputCoordinates": [
+                  [
+                    127.7225462,
+                    26.21769
+                  ],
+                  [
+                    127.7959208,
+                    26.3142262
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.722641,
+                    26.217541
+                  ],
+                  [
+                    127.795879,
+                    26.314704
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  19.04280728,
+                  53.12480495
+                ]
+              }
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "minutes": [
+                11,
+                11
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7959208,26.3142262;127.7573637,26.3165214?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 621.3,
+                "distanceMeters": 5494.6,
+                "inputCoordinates": [
+                  [
+                    127.7959208,
+                    26.3142262
+                  ],
+                  [
+                    127.7573637,
+                    26.3165214
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.795879,
+                    26.314704
+                  ],
+                  [
+                    127.75721,
+                    26.316476
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  53.12480495,
+                  16.16359197
+                ]
+              }
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "minutes": [
+                26,
+                26
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 青洞以真榮田岬周邊道路作參考，浮潛業者／實際集合點待確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7573637,26.3165214;127.7720512,26.4439064?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1532.5,
+                "distanceMeters": 16880,
+                "inputCoordinates": [
+                  [
+                    127.7573637,
+                    26.3165214
+                  ],
+                  [
+                    127.7720512,
+                    26.4439064
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.75721,
+                    26.316476
+                  ],
+                  [
+                    127.771904,
+                    26.443474
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  16.16359197,
+                  50.05917674
+                ]
+              }
+            },
+            {
+              "from": 4,
+              "to": 5,
+              "minutes": [
+                26,
+                26
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 青洞以真榮田岬周邊道路作參考，浮潛業者／實際集合點待確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7720512,26.4439064;127.7573637,26.3165214?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1552.7,
+                "distanceMeters": 16775.1,
+                "inputCoordinates": [
+                  [
+                    127.7720512,
+                    26.4439064
+                  ],
+                  [
+                    127.7573637,
+                    26.3165214
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.771904,
+                    26.443474
+                  ],
+                  [
+                    127.75721,
+                    26.316476
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  50.05917674,
+                  16.16359197
+                ]
+              }
+            },
+            {
+              "from": 5,
+              "to": 6,
+              "minutes": [
+                22,
+                22
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7573637,26.3165214;127.6953425,26.2231562?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1292.4,
+                "distanceMeters": 14533.7,
+                "inputCoordinates": [
+                  [
+                    127.7573637,
+                    26.3165214
+                  ],
+                  [
+                    127.6953425,
+                    26.2231562
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.75721,
+                    26.316476
+                  ],
+                  [
+                    127.695693,
+                    26.223421
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  16.16359197,
+                  45.66384984
+                ]
+              }
+            },
+            {
+              "from": 6,
+              "to": 7,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            },
+            {
+              "from": 7,
+              "to": 8,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            }
+          ]
+        },
+        {
+          "id": "nonparticipants",
+          "label": "不參加浮潛",
+          "note": "美國村停留與等待接回合併為同一地點；不畫前往青洞的移動。接回時間／集合點依領隊確認；會合後先回飯店、再至五苑。晚餐後自行返店。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0
+            },
+            {
+              "place": "daruma",
+              "itemIndex": 1
+            },
+            {
+              "place": "rycom",
+              "itemIndex": 2
+            },
+            {
+              "place": "american",
+              "itemIndex": 3,
+              "label": "美國村自由活動・等候會合",
+              "itemIndexes": [
+                3,
+                6
+              ]
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 7
+            },
+            {
+              "place": null,
+              "itemIndex": 8,
+              "label": "五苑 Goen（分店／路段待確認）"
+            },
+            {
+              "place": "hotel",
+              "itemIndex": 9,
+              "label": "餐後自行返回飯店"
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                8,
+                8
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6953425,26.2231562;127.7225462,26.2176900?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 428.5,
+                "distanceMeters": 4004.7,
+                "inputCoordinates": [
+                  [
+                    127.6953425,
+                    26.2231562
+                  ],
+                  [
+                    127.7225462,
+                    26.21769
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.695693,
+                    26.223421
+                  ],
+                  [
+                    127.722641,
+                    26.217541
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  45.66384984,
+                  19.04280728
+                ]
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                25,
+                25
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7225462,26.2176900;127.7959208,26.3142262?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1449.8,
+                "distanceMeters": 17894.6,
+                "inputCoordinates": [
+                  [
+                    127.7225462,
+                    26.21769
+                  ],
+                  [
+                    127.7959208,
+                    26.3142262
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.722641,
+                    26.217541
+                  ],
+                  [
+                    127.795879,
+                    26.314704
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  19.04280728,
+                  53.12480495
+                ]
+              }
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "minutes": [
+                11,
+                11
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7959208,26.3142262;127.7573637,26.3165214?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 621.3,
+                "distanceMeters": 5494.6,
+                "inputCoordinates": [
+                  [
+                    127.7959208,
+                    26.3142262
+                  ],
+                  [
+                    127.7573637,
+                    26.3165214
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.795879,
+                    26.314704
+                  ],
+                  [
+                    127.75721,
+                    26.316476
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  53.12480495,
+                  16.16359197
+                ]
+              }
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "minutes": [
+                22,
+                22
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.7573637,26.3165214;127.6953425,26.2231562?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1292.4,
+                "distanceMeters": 14533.7,
+                "inputCoordinates": [
+                  [
+                    127.7573637,
+                    26.3165214
+                  ],
+                  [
+                    127.6953425,
+                    26.2231562
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.75721,
+                    26.316476
+                  ],
+                  [
+                    127.695693,
+                    26.223421
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  16.16359197,
+                  45.66384984
+                ]
+              }
+            },
+            {
+              "from": 4,
+              "to": 5,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            },
+            {
+              "from": 5,
+              "to": 6,
+              "minutes": null,
+              "note": "分店／路段待確認；不以行程時刻差或距離推算車程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "variants": [
+        {
+          "id": "city",
+          "label": "自選・市區輕鬆路線",
+          "note": "全日自由活動，無團體旅遊車；飯店→國際通／市場本通→新都心 DFS→飯店僅為獨立建議，可取捨。車程只是交通比較參考，可改步行或大眾運輸；返店為示意終點，沒有新增行程卡。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0
+            },
+            {
+              "place": "kokusai",
+              "itemIndex": 1
+            },
+            {
+              "place": "dfs",
+              "itemIndex": 2
+            },
+            {
+              "place": "hotel",
+              "itemIndex": null,
+              "label": "返回飯店（示意終點）"
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                6,
+                6
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 國際通／市場本通以市場街區附近可通行道路為參考，非駛入步行街。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6953425,26.2231562;127.6881958,26.2154871?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 324.2,
+                "distanceMeters": 2174.1,
+                "inputCoordinates": [
+                  [
+                    127.6953425,
+                    26.2231562
+                  ],
+                  [
+                    127.6881958,
+                    26.2154871
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.695693,
+                    26.223421
+                  ],
+                  [
+                    127.688005,
+                    26.21547
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  45.66384984,
+                  19.17861632
+                ]
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                7,
+                7
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 國際通／市場本通以市場街區附近可通行道路為參考，非駛入步行街。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6881958,26.2154871;127.6967176,26.2230954?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 383,
+                "distanceMeters": 2739.2,
+                "inputCoordinates": [
+                  [
+                    127.6881958,
+                    26.2154871
+                  ],
+                  [
+                    127.6967176,
+                    26.2230954
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.688005,
+                    26.21547
+                  ],
+                  [
+                    127.696566,
+                    26.222876
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  19.17861632,
+                  28.62530861
+                ]
+              }
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "minutes": [
+                1,
+                1
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。 此為純行車模型，非含上下車的實際門到門時間；兩地鄰近，也可步行，飯店官方另列往 DFS 步行約5分（不可當成車程）。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6967176,26.2230954;127.6953425,26.2231562?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 58.3,
+                "distanceMeters": 559,
+                "inputCoordinates": [
+                  [
+                    127.6967176,
+                    26.2230954
+                  ],
+                  [
+                    127.6953425,
+                    26.2231562
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.696566,
+                    26.222876
+                  ],
+                  [
+                    127.695693,
+                    26.223421
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  28.62530861,
+                  45.66384984
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "outlet",
+          "label": "自選・Outlet 獨立備選",
+          "note": "飯店→ASHIBINAA Outlet→飯店為獨立備選，不接續 DFS、不必與市區路線全部走完；自行安排交通。返店為示意終點，沒有新增行程卡。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0
+            },
+            {
+              "place": "outlet",
+              "itemIndex": 3
+            },
+            {
+              "place": "hotel",
+              "itemIndex": null,
+              "label": "返回飯店（示意終點）"
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                19,
+                19
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6953425,26.2231562;127.6570821,26.1588745?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1130.3,
+                "distanceMeters": 11779.3,
+                "inputCoordinates": [
+                  [
+                    127.6953425,
+                    26.2231562
+                  ],
+                  [
+                    127.6570821,
+                    26.1588745
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.695693,
+                    26.223421
+                  ],
+                  [
+                    127.656297,
+                    26.158414
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  45.66384984,
+                  93.63238754
+                ]
+              }
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "minutes": [
+                19,
+                19
+              ],
+              "note": "OSRM靜態道路估算／不含即時路況；模型秒數向上取整分，非誤差範圍。不含候車、上下車、停車及步行；以地點附近道路為端點，實際出入口待現場確認。",
+              "source": "https://router.project-osrm.org/route/v1/driving/127.6570821,26.1588745;127.6953425,26.2231562?overview=false",
+              "evidence": {
+                "method": "OSRM driving / OpenStreetMap",
+                "durationSeconds": 1083.1,
+                "distanceMeters": 10390.8,
+                "inputCoordinates": [
+                  [
+                    127.6570821,
+                    26.1588745
+                  ],
+                  [
+                    127.6953425,
+                    26.2231562
+                  ]
+                ],
+                "snappedCoordinates": [
+                  [
+                    127.656297,
+                    26.158414
+                  ],
+                  [
+                    127.695693,
+                    26.223421
+                  ]
+                ],
+                "snapDistancesMeters": [
+                  93.63238754,
+                  45.66384984
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "variants": [
+        {
+          "id": "main",
+          "label": "退房・前往機場",
+          "note": "退房集合／飯店出發合併；只呈現至那霸機場的在地移動，不畫航班或台灣段。",
+          "stops": [
+            {
+              "place": "hotel",
+              "itemIndex": 0,
+              "label": "飯店退房集合／出發",
+              "itemIndexes": [
+                0,
+                1
+              ]
+            },
+            {
+              "place": "airport",
+              "itemIndex": 2
+            }
+          ],
+          "legs": [
+            {
+              "from": 0,
+              "to": 1,
+              "minutes": [
+                20,
+                25
+              ],
+              "note": "飯店官方交通參考約20～25分；官方為機場往飯店方向，反向僅供參考，非已驗證反向車程／非即時路況。請依導遊集合安排預留機場手續時間。",
+              "source": "https://www.daiwaroynet.jp/naha-omoromachi/access/",
+              "evidence": {
+                "method": "official access reverse-direction reference",
+                "quote": "那覇空港より車で約20分～25分",
+                "publishedDirection": "airport → hotel",
+                "usedDirection": "hotel → airport"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "attribution": {
+    "label": "© OpenStreetMap contributors · ODbL",
+    "source": "https://www.openstreetmap.org/copyright"
+  },
+  "routingMethod": "OSRM public demo, one-off research snapshot; driving duration ceil(seconds / 60); no live client routing; coordinate lookup via Nominatim, data © OpenStreetMap contributors."
+}

@@ -44,6 +44,18 @@
 
 `js/maps-launch.js` 捕捉有效 Google 地圖連結：手機優先喚起 Google Maps（iOS scheme、Android 指定套件 intent），無法喚起時提供 HTTPS 網頁備援；桌面維持一般連結。Telegram 等內建瀏覽器及作業系統仍可能要求確認或攔截 App 喚起，不能保證網頁能偵測是否安裝 App。
 
+### 每日路線示意圖
+
+每日餐食／提醒之後、第一張行程卡片之前提供預設收合的「今日路線示意圖」。沙色本島輪廓呈東北／西南走向；那霸另有放大示意。虛線只代表行程順序，非道路、GPS 定位或精確比例。相鄰／重複點共用編號標記，下方每站按鈕仍各自跳至原行程卡片；未知餐廳僅列在清單，不猜位置。
+
+路線資料為 `data/route-map.json`：`places` 的 `x/y` 使用 400×520 圖面座標、`insetX/insetY` 使用 400×240 那霸圖面座標，不是經緯度。`days[].variants[]` 含 `id/label/note/stops/legs`；`stops[].itemIndex` 必須對應 `data/itinerary.json` 當日 `items` 陣列索引。D3 分參加浮潛／不參加者，D4 分市區／Outlet 單獨往返，切換時站點、路段及已知時間合計一併更新；D1／D5 不把台灣或航班畫成陸上路線。
+
+車程是本地資料中的靜態範圍，非即時路況；未知路段不算成零分鐘，合計清楚標示未確認段數且不是全日耗時。「車程來源與計算說明」收合保存完整技術說明與有效 HTTPS 來源，拒絕含帳密網址；主要路段清單只顯示站名、時間及待確認提醒。全為那霸放大點的選項省略空的本島圖。頁面只載入本地 JSON，不呼叫地理編碼／道路服務、不需 API key。資料載入失敗會顯示提示，不影響原卡片、時刻、照片或導航。
+
+新增 JS、CSS 與 JSON 已列入離線清單。可用既有離線準備狀態確認快取完整後再斷網。
+
+路線測試：`node --test tests/route-map.test.js`；真實瀏覽器與離線測試需本機 Playwright，設定 `PLAYWRIGHT_MODULE` 指向套件、`PLAYWRIGHT_BROWSERS_PATH` 指向瀏覽器：`node tests/route-map.browser.cjs`（預設 localhost:8769，可設定 `ROUTE_BASE_URL`）及 `node --test tests/route-map-offline.test.js`。測試資料透過記憶體 fixture 提供，不修改正式路線資料；正式資料整合另外驗證。
+
 ## 海島主題
 
 以每日行程瀏覽為主要版面：精簡海水標頭、橫向日期膠囊、圓形時間軸節點、22px 圓角卡片與波浪分隔。無額外宣傳區、假統計或捏造時間。

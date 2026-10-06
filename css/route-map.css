@@ -1,0 +1,27 @@
+/* Sand + seafoam schematic; position values are diagram percentages only. */
+.route-map { margin: 0 0 24px; border: 1px solid var(--line,#cadfd9); border-radius: 18px; background: var(--surface,#fffdf8); color: var(--ink,#163547); overflow-wrap: anywhere; }
+.route-map > summary { padding: 14px 16px; min-height: 48px; box-sizing: border-box; cursor: pointer; font-weight: 700; }
+.route-body { padding: 0 14px 16px; }
+.route-body h3,.route-body h4 { margin: 12px 0 8px; font-size: 1rem; }
+.route-disclaimer,.route-note,.route-key,.route-unavailable { font-size: .82rem; line-height: 1.7; color: var(--muted,#526775); }
+.route-unavailable { padding: 0 16px 12px; }
+.route-variants { display:flex; flex-wrap:wrap; gap:8px; }
+.route-variants button,.route-stop { font:inherit; color:inherit; background:var(--sand,#fff8ed); border:1px solid var(--line,#cadfd9); border-radius:12px; min-height:44px; padding:9px 12px; text-align:left; cursor:pointer; }
+.route-variants button[aria-pressed="true"] { background:var(--ocean-deep,#086471); color:white; }
+.route-diagram { position:relative; margin:12px 0; background:var(--seafoam,#e3f2ed); border:1px solid var(--line,#cadfd9); border-radius:16px; overflow:hidden; }
+.route-island { aspect-ratio:400 / 520; }
+.route-inset { aspect-ratio:400 / 240; }
+.route-diagram svg { display:block; width:100%; height:100%; }
+.route-land { fill:var(--sand,#fff8ed); stroke:#819f92; stroke-width:2; stroke-linejoin:round; }
+.route-line { fill:none; stroke:var(--ocean-deep,#086471); stroke-width:3; stroke-dasharray:7 6; }
+.route-diagram text { font:16px sans-serif; fill:var(--muted,#526775); }
+.route-marker { position:absolute; transform:translate(-50%,-50%); border:2px solid var(--surface,#fffdf8); background:var(--ocean-deep,#086471); color:white; border-radius:50%; width:44px; height:44px; padding:0; font:700 15px sans-serif; cursor:pointer; box-shadow:0 2px 5px #16354730; }
+.route-map button:focus-visible,.route-map summary:focus-visible { outline:3px solid var(--coral,#b74432); outline-offset:3px; }
+.route-stops { list-style:none; padding:0; display:grid; gap:6px; }
+.route-stop { width:100%; display:block; font-size:.87rem; }
+.route-stop b { display:inline-block; margin-right:6px; }
+.route-legs { list-style:none; padding:0; margin:0; }
+.route-legs li { padding:8px 0; border-top:1px solid var(--line,#cadfd9); font-size:.82rem; line-height:1.6; }
+.route-legs span { display:block; color:var(--muted,#526775); }
+.timeline > [data-route-item]:focus { outline:3px solid var(--coral,#b74432); outline-offset:4px; }
+@media (prefers-reduced-motion:reduce) { .route-map * { scroll-behavior:auto; transition:none; } }
